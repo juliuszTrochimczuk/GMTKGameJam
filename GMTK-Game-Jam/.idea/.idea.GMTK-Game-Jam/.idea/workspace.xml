@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9c68e4a4-8829-4cf5-b89c-51f06e73fe7f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GMTK-Game-Jam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GMTK-Game-Jam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_9thWave/Prototype/Object_Tests/Prefabs/Environment/Blocks/Sea-shell-1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_9thWave/Prototype/Object_Tests/Prefabs/Environment/Blocks/Sea-shell-1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_9thWave/Prototype/Object_Tests/Prefabs/Environment/Blocks/Sea-shell-2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_9thWave/Prototype/Object_Tests/Prefabs/Environment/Blocks/Sea-shell-2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_9thWave/Prototype/Object_Tests/Prefabs/Environment/Blocks/Sea-shell-3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_9thWave/Prototype/Object_Tests/Prefabs/Environment/Blocks/Sea-shell-3.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_9thWave/Prototype/Object_Tests/Prefabs/Environment/Blocks/Sea-weed-1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_9thWave/Prototype/Object_Tests/Prefabs/Environment/Blocks/Sea-weed-1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_9thWave/Prototype/Object_Tests/Prefabs/Environment/Blocks/Sea-weed-2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_9thWave/Prototype/Object_Tests/Prefabs/Environment/Blocks/Sea-weed-2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_9thWave/Prototype/Object_Tests/Levels/PrototypeLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_9thWave/Prototype/Object_Tests/Levels/PrototypeLevel.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_9thWave/Prototype/Object_Tests/Levels/PrototypeLevel/Global Volume Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_9thWave/Prototype/Object_Tests/Levels/PrototypeLevel/Global Volume Profile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_9thWave/Scripts/Player/PlayerCharacterController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_9thWave/Scripts/Player/PlayerCharacterController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +35,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Shaders",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

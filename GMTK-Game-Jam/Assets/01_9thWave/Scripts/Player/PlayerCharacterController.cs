@@ -12,7 +12,7 @@ namespace _01_9thWave.Scripts.Player
         [SerializeField] private Transform _grabCheck;
         [SerializeField] private float _gradRadius;
         [SerializeField] private LayerMask _whatIsGrabbable;
-        [SerializeField] private float _grabDistance = 3f;
+        [SerializeField] private float _grabDistance = 1f;
 
         private Rigidbody2D _rb;
         private CircleCollider2D collider;
