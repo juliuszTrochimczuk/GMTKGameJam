@@ -4,10 +4,18 @@ namespace _01_9thWave.Scripts.Player
 {
     public class PlayerAnimator : MonoBehaviour
     {
-        private PlayerCharacterController _playerCharacterController;
-        private Animator _animator;
-        
         public bool facingRight = false;
+        
+        private Animator _animator;
+        private Rigidbody2D _rb;
+        private PlayerCharacterController _playerCharacterController;
+        
+        void Awake()
+        {
+            _rb = GetComponent<Rigidbody2D>();
+            _animator = GetComponent<Animator>();
+            _playerCharacterController = GetComponent<PlayerCharacterController>();
+        }
         
         public void FacingCheck(float xInput)
         {
@@ -27,6 +35,18 @@ namespace _01_9thWave.Scripts.Player
             Vector3 scaler = transform.localScale;
             scaler.x *= -1;
             transform.localScale = scaler;
+        }
+        
+        public void IdleAnimation()
+        {
+        }
+
+        public void WalkAnimation()
+        {
+        }
+
+        public void JumpAnimation()
+        {
         }
     }
 }

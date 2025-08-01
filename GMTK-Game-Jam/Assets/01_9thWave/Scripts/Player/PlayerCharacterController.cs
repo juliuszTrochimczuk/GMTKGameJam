@@ -17,15 +17,14 @@ namespace _01_9thWave.Scripts.Player
         [SerializeField] private LayerMask _whatIsGrabbable;
         [SerializeField] private float _grabDistance = 3f;
 
-        private Rigidbody2D _rb;
-        private MousePoint _mousePoint;
-
         private bool _isGrounded;
         private bool _isGrabbing = false;
         
         private Vector2 _inputVector;
         private GameObject _heldObject;
 
+        private Rigidbody2D _rb;
+        private MousePoint _mousePoint;
         private PlayerAnimator _animator;
 
         private void Start()
@@ -40,6 +39,7 @@ namespace _01_9thWave.Scripts.Player
             CheckIfGrounded();
             _animator.FacingCheck(_inputVector.x);
             _rb.velocity = new Vector2(_inputVector.x * playerSpeed, _rb.velocity.y);
+            if (_inputVector.x != 0) Walk(); else Idle();
             
             if (_heldObject != null)
             {
@@ -51,16 +51,24 @@ namespace _01_9thWave.Scripts.Player
         }
 
         public void MoveInputValues(CallbackContext ctx) => _inputVector = ctx.ReadValue<Vector2>();
+        
+        private void Walk()
+        {
+            _animator.WalkAnimation();
+        }
+
+        private void Idle()
+        {
+            _animator.IdleAnimation();
+        }
 
         public void Jump(CallbackContext ctx)
         {
             if (_isGrounded)
-                Jump();
-        }
-
-        private void Jump()
-        {
-            _rb.velocity = Vector2.up * playerJumpForce;
+            {
+                _animator.JumpAnimation();
+                _rb.velocity = Vector2.up * playerJumpForce;
+            }
         }
 
         private void CheckIfGrounded()
