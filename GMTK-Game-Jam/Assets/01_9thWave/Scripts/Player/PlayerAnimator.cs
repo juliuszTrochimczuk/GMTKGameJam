@@ -11,13 +11,13 @@ namespace _01_9thWave.Scripts.Player
         
         private Animator _animator;
         private Rigidbody2D _rb;
-        private PlayerCharacterController _playerCharacterController;
+        private CharacterController _playerCharacterController;
         
         void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
-            _playerCharacterController = GetComponent<PlayerCharacterController>();
+            _playerCharacterController = GetComponent<CharacterController>();
         }
         
         public void FacingCheck(float xInput)
