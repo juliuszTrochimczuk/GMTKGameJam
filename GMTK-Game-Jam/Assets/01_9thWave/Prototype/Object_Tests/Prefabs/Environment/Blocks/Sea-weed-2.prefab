@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 734175098183520823}
   - component: {fileID: 1283547990308567259}
   - component: {fileID: 3906923148120795709}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sea-weed-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.0595, y: 4.5915, z: 0}
-  m_LocalScale: {x: 3.4585092, y: 3.4585092, z: 3.4585092}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

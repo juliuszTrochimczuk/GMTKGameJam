@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ObjectsManagers
 {
-    public class SpaceAreas : MonoBehaviour
+    public class SpaceArea : MonoBehaviour
     {
         [SerializeField] private Vector2 size;
 

@@ -17,7 +17,7 @@ namespace ObjectsManagers
             public List<GameObject> objects;
         }
 
-        [SerializeField] private List<SpaceAreas> spawningAreas;
+        [SerializeField] private SpaceArea spawningArea;
 
         [SerializeField] private List<WaveObjectsPool> objectsPool;
 
@@ -34,11 +34,7 @@ namespace ObjectsManagers
             for (int i = 0; i < objectsCount; i++)
             {
                 int objectIndex = Random.Range(0, objectsPool[CurrentWave].objects.Count);
-                int spawningAreaIndex = Random.Range(0, spawningAreas.Count);
-
-                Vector2 spawningPoint = spawningAreas[spawningAreaIndex].GetRandomPosition();
-
-                Instantiate(objectsPool[CurrentWave].objects[objectIndex], spawningPoint, Quaternion.identity);
+                Instantiate(objectsPool[CurrentWave].objects[objectIndex], spawningArea.GetRandomPosition(), Quaternion.identity);
             }
         }
 
