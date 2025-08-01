@@ -1,4 +1,4 @@
-using Managers;
+using EventsManagers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +9,7 @@ namespace Prototype.ManagerTest
     {
         private void Start()
         {
-            EventsCaller.Instance.GetEvent(Managers.EventType.Object_Spawn).AddListenerToGameEvent(() => PrintToConsole("XDD"));
+            EventsCaller.Instance.GetEvent(EventsManagers.EventType.Object_Spawn).AddListenerToGameEvent(() => PrintToConsole("XDD"));
         }
 
         public void PrintToConsole(string message)

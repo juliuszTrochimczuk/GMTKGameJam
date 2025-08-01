@@ -1,7 +1,7 @@
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
 
-namespace Managers
+namespace EventsManagers
 {
     public class EventsCaller : MonoBehaviour
     {
@@ -11,21 +11,24 @@ namespace Managers
 
         private void Awake()
         {
+            if (Instance != null)
+            {
+                foreach (InGameEvent @event in Instance.gameEvents.Values)
+                    @event.StopTimer();
+                Destroy(Instance);
+            }
+
+            Instance = this;
+        }
+
+        private void Start()
+        {
             foreach (InGameEvent @event in gameEvents.Values)
             {
                 @event.Owner = this;
                 if (@event.TimerRunOnGameStart)
                     @event.StartTimer();
             }
-
-            if (Instance != null)
-            {
-                foreach (InGameEvent @event in gameEvents.Values)
-                    @event.StopTimer();
-                Destroy(Instance);
-            }
-
-            Instance = this;
         }
 
         public InGameEvent GetEvent(EventType key) => gameEvents[key]; 

@@ -1,4 +1,4 @@
-namespace Managers
+namespace EventsManagers
 {
     public enum EventType
     {
