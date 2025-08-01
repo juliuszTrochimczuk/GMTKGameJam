@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7838984868437805320}
   - component: {fileID: 4819083952287510415}
   - component: {fileID: 2928778892281711036}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sea-shell-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
