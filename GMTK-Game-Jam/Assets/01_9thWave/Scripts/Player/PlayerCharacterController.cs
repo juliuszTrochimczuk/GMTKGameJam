@@ -3,7 +3,7 @@ using static UnityEngine.InputSystem.InputAction;
 
 namespace _01_9thWave.Scripts.Player
 {
-    public class CharacterController : MonoBehaviour
+    public class PlayerCharacterController : MonoBehaviour
     {
         [SerializeField] int playerSpeed = 10;
         [SerializeField] private int playerJumpForce = 10;
@@ -26,15 +26,19 @@ namespace _01_9thWave.Scripts.Player
         private Vector2 _inputVector;
         private GameObject _heldObject;
 
+        private PlayerAnimator _animator;
+
         private void Start()
         {
             _mousePoint = GetComponentInChildren<MousePoint>();
             _rb = GetComponent<Rigidbody2D>();
+            _animator = GetComponent<PlayerAnimator>();
            }
 
         void FixedUpdate()
         {
             CheckIfGrounded();
+            _animator.FacingCheck(_inputVector.x);
             _rb.velocity = new Vector2(_inputVector.x * playerSpeed, _rb.velocity.y);
             
             if (_heldObject != null)
