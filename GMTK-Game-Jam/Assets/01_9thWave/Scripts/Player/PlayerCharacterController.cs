@@ -1,7 +1,7 @@
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
-namespace Player
+namespace _01_9thWave.Scripts.Player
 {
     public class CharacterController : MonoBehaviour
     {
@@ -21,6 +21,8 @@ namespace Player
         private MousePoint _mousePoint;
 
         private bool _isGrounded;
+        private bool _isGrabbing = false;
+        
         private Vector2 _inputVector;
         private GameObject _heldObject;
 
@@ -34,10 +36,13 @@ namespace Player
         {
             CheckIfGrounded();
             _rb.velocity = new Vector2(_inputVector.x * playerSpeed, _rb.velocity.y);
+            
             if (_heldObject != null)
             {
-                _heldObject.transform.position = (_mousePoint.transform.position-transform.position).normalized*_grabDistance + transform.position;
+               _holdPoint.transform.position = (_mousePoint.transform.position-transform.position).normalized*_grabDistance + transform.position;
                 _heldObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
+                _heldObject.GetComponent<Rigidbody2D>().velocity =
+                    (_holdPoint.position - _heldObject.transform.position) * 20;
             }
         }
 
@@ -62,15 +67,25 @@ namespace Player
 
         public void Grab(CallbackContext ctx)
         {
-            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, _gradRadius, _whatIsGrabbable);
-
-
-            if (hitColliders.Length > 0)
+            if (ctx.performed)
             {
-                GameObject objectToGrab = hitColliders[0].gameObject;
-                _heldObject = objectToGrab;
-                //objectToGrab.transform.position = _holdPoint.position;
-                //
+                if (_isGrabbing == false)
+                {
+                    Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, _gradRadius, _whatIsGrabbable);
+
+                    if (hitColliders.Length > 0)
+                    {
+                        GameObject objectToGrab = hitColliders[0].gameObject;
+                        _heldObject = objectToGrab;
+                        _isGrabbing = true;
+                    }
+                }
+                else if (_isGrabbing == true)
+                {
+                    _heldObject.GetComponent<Rigidbody2D>().gravityScale = 1f;
+                    _heldObject = null;
+                    _isGrabbing = false;
+                }
             }
         }
     }
