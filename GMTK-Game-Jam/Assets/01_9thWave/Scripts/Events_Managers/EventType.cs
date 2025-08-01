@@ -4,6 +4,5 @@ namespace EventsManagers
     {
         Wave,
         Object_Spawn,
-        Wind_Blow
     }
 }

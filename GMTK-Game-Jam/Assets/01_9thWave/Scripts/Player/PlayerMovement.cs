@@ -11,6 +11,8 @@ namespace _01_9thWave.Scripts.Player
         [SerializeField] private UnityEvent onLanding;
         [SerializeField] private UnityEvent<float> onChangingDirection;
 
+        [SerializeField] private LayerMask _groundLayers;
+
         [Header("Walking")]
         [SerializeField] private float _groundMaxSpeed;
         [SerializeField] private float _groundMoveSmoother;
@@ -62,7 +64,12 @@ namespace _01_9thWave.Scripts.Player
         {
             IsPlayerOnGround();
 
-            _horizontalVelocity = Mathf.SmoothDamp(_horizontalVelocity, InputDirection, ref _currentHorizontalVelocity, _MoveSmoother);
+            if (_onGround)
+                _rb.gravityScale = 1;
+            else
+                _rb.gravityScale = 9.89f;
+
+                _horizontalVelocity = Mathf.SmoothDamp(_horizontalVelocity, InputDirection, ref _currentHorizontalVelocity, _MoveSmoother);
             _rb.velocity = new Vector2(_horizontalVelocity * _MaxSpeed, _verticalVelocity);
         }
 
@@ -95,6 +102,6 @@ namespace _01_9thWave.Scripts.Player
         }
 
         private void IsPlayerOnGround() =>
-            _onGround = Physics2D.Raycast(transform.position, Vector2.down, _collider.radius + 0.05f, LayerMask.GetMask("Default", "Ground"));
+            _onGround = Physics2D.Raycast(transform.position, Vector2.down, _collider.radius + 0.05f, _groundLayers);
     }
 }
