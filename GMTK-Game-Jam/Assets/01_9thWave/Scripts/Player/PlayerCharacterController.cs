@@ -71,6 +71,7 @@ namespace _01_9thWave.Scripts.Player
                         GameObject objectToGrab = hitColliders[0].gameObject;
                         _heldObject = objectToGrab;
                         _isGrabbing = true;
+                        Physics2D.IgnoreLayerCollision(7,8,true);
                     }
                 }
                 else if (_isGrabbing == true)
@@ -78,6 +79,8 @@ namespace _01_9thWave.Scripts.Player
                     _heldObject.GetComponent<Rigidbody2D>().gravityScale = 1f;
                     _heldObject = null;
                     _isGrabbing = false;
+                    Physics2D.IgnoreLayerCollision(7,8,false);
+
                 }
             }
         }
