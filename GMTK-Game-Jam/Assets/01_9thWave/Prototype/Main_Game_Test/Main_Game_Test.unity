@@ -216,20 +216,14 @@ MonoBehaviour:
     _serializedList:
     - Key: 0
       Value:
-        eventCooldown: 10
+        eventCooldown: 1.5
         eventDelay: 0
         timerRunOnGameStart: 1
-        gameEvent:
-          m_PersistentCalls:
-            m_Calls: []
     - Key: 1
       Value:
-        eventCooldown: 10.1
+        eventCooldown: 1.51
         eventDelay: 0
         timerRunOnGameStart: 1
-        gameEvent:
-          m_PersistentCalls:
-            m_Calls: []
 --- !u!4 &3924944
 Transform:
   m_ObjectHideFlags: 0
@@ -1405,9 +1399,9 @@ Transform:
   m_GameObject: {fileID: 1983985109}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.80358154, y: -0.83013725, z: 0.029660702}
-  m_LocalScale: {x: 20, y: 20, z: 20}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 2.67, y: -0.04, z: 0.029660702}
+  m_LocalScale: {x: 40, y: 20, z: 20}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -29,7 +29,6 @@ namespace ObjectsManagers
 
         public void CreateObjectsFromPoolBasedOnWave()
         {
-            Debug.Log(CurrentWave);
             int objectsCount = Random.Range(objectsPool[CurrentWave].minSpawnObjectsNumber, objectsPool[CurrentWave].maxSpawnObjectsNumber);
             for (int i = 0; i < objectsCount; i++)
             {
