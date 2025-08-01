@@ -4,6 +4,9 @@ namespace _01_9thWave.Scripts.Player
 {
     public class PlayerAnimator : MonoBehaviour
     {
+        private string jumpTrigger = "Jump";
+        private string walkingBool = "isWalking";
+        
         public bool facingRight = false;
         
         private Animator _animator;
@@ -39,14 +42,17 @@ namespace _01_9thWave.Scripts.Player
         
         public void IdleAnimation()
         {
+            _animator.SetBool(walkingBool, false);
         }
 
         public void WalkAnimation()
         {
+            _animator.SetBool(walkingBool, true);
         }
 
         public void JumpAnimation()
         {
+            _animator.SetTrigger(jumpTrigger);
         }
     }
 }
