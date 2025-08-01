@@ -13,7 +13,9 @@ namespace _01_9thWave.Scripts.Player
         [SerializeField] private float _gradRadius;
         [SerializeField] private LayerMask _whatIsGrabbable;
         [SerializeField] private float _grabDistance = 3f;
+        [SerializeField] private float _grabMagnitude = 2f;
         [SerializeField] private MousePoint _mousePoint;
+        [SerializeField] private float _normalGravityScale = 5f;
 
 
         private bool _isGrounded;
@@ -44,10 +46,18 @@ namespace _01_9thWave.Scripts.Player
             
             if (_heldObject != null)
             {
-               _holdPoint.transform.position = (_mousePoint.transform.position-transform.position).normalized*_grabDistance + transform.position;
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, _mousePoint.transform.position, _grabDistance, 8);
+                if (hit.collider != null)
+                {
+                    _holdPoint.position = hit.point;
+                }
+                else
+                {
+                    _holdPoint.transform.position = (_mousePoint.transform.position-transform.position).normalized*_grabDistance + transform.position;
+                }
                 _heldObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
                 _heldObject.GetComponent<Rigidbody2D>().velocity =
-                    (_holdPoint.position - _heldObject.transform.position) * 20;
+                    (_holdPoint.position - _heldObject.transform.position) * _grabMagnitude;
             }
         }
 
@@ -95,7 +105,7 @@ namespace _01_9thWave.Scripts.Player
                 }
                 else if (_isGrabbing == true)
                 {
-                    _heldObject.GetComponent<Rigidbody2D>().gravityScale = 1f;
+                    _heldObject.GetComponent<Rigidbody2D>().gravityScale = _normalGravityScale;
                     _heldObject.layer = LayerMask.NameToLayer("MovableObject");
                     _heldObject = null;
                     _isGrabbing = false;
