@@ -9,15 +9,13 @@ namespace _01_9thWave.Scripts.Player
         [SerializeField] private int playerJumpForce = 10;
 
         [SerializeField] private Transform _holdPoint;
-        [SerializeField] private Transform _groundCheck;
-        [SerializeField] private float _checkRadius;
         [SerializeField] private Transform _grabCheck;
         [SerializeField] private float _gradRadius;
-        [SerializeField] private LayerMask _whatIsGround;
         [SerializeField] private LayerMask _whatIsGrabbable;
         [SerializeField] private float _grabDistance = 3f;
 
         private Rigidbody2D _rb;
+        private CircleCollider2D collider;
         private MousePoint _mousePoint;
 
         private bool _isGrounded;
@@ -30,7 +28,8 @@ namespace _01_9thWave.Scripts.Player
         {
             _mousePoint = GetComponentInChildren<MousePoint>();
             _rb = GetComponent<Rigidbody2D>();
-           }
+            collider = GetComponent<CircleCollider2D>();
+        }
 
         void FixedUpdate()
         {
@@ -54,16 +53,10 @@ namespace _01_9thWave.Scripts.Player
                 Jump();
         }
 
-        private void Jump()
-        {
+        private void Jump() => 
             _rb.velocity = Vector2.up * playerJumpForce;
-        }
 
-        private void CheckIfGrounded()
-        {
-            Vector2 groundCheck = _groundCheck.position;
-            _isGrounded = (Physics2D.OverlapCircle(groundCheck, _checkRadius, _whatIsGround));
-        }
+        private void CheckIfGrounded() => _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, collider.radius + 0.05f);
 
         public void Grab(CallbackContext ctx)
         {
