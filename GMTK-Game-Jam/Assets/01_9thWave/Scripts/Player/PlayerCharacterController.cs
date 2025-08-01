@@ -14,15 +14,16 @@ namespace _01_9thWave.Scripts.Player
         [SerializeField] private LayerMask _whatIsGrabbable;
         [SerializeField] private float _grabDistance = 3f;
 
-        private Rigidbody2D _rb;
-        private CircleCollider2D collider;
-        private MousePoint _mousePoint;
-
         private bool _isGrounded;
         private bool _isGrabbing = false;
         
         private Vector2 _inputVector;
         private GameObject _heldObject;
+        
+        private Rigidbody2D _rb;
+        private CircleCollider2D collider;
+        private MousePoint _mousePoint;
+        private PlayerAnimator _animator;
 
         private void Start()
         {
@@ -70,17 +71,16 @@ namespace _01_9thWave.Scripts.Player
                     {
                         GameObject objectToGrab = hitColliders[0].gameObject;
                         _heldObject = objectToGrab;
+                        _heldObject.layer = LayerMask.NameToLayer("GrabbedObject");
                         _isGrabbing = true;
-                        Physics2D.IgnoreLayerCollision(7,8,true);
                     }
                 }
                 else if (_isGrabbing == true)
                 {
                     _heldObject.GetComponent<Rigidbody2D>().gravityScale = 1f;
+                    _heldObject.layer = LayerMask.NameToLayer("MovableObject");
                     _heldObject = null;
                     _isGrabbing = false;
-                    Physics2D.IgnoreLayerCollision(7,8,false);
-
                 }
             }
         }
