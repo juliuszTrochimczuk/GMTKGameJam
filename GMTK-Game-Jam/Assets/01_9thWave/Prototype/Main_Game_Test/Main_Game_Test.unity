@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 1030901825}
   - component: {fileID: 1030901824}
   - component: {fileID: 1030901823}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MousePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,8 +692,9 @@ GameObject:
   - component: {fileID: 1034461682}
   - component: {fileID: 1034461681}
   - component: {fileID: 1034461686}
-  - component: {fileID: 1034461685}
-  m_Layer: 0
+  - component: {fileID: 1034461687}
+  - component: {fileID: 1034461688}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -833,27 +834,6 @@ Transform:
   - {fileID: 1030901822}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1034461685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034461678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a46ad9d3efe7084a877134da3a01809, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpeed: 10
-  playerJumpForce: 10
-  _holdPoint: {fileID: 1160593064}
-  _grabCheck: {fileID: 1609659801}
-  _gradRadius: 1
-  _whatIsGrabbable:
-    serializedVersion: 2
-    m_Bits: 256
-  _grabDistance: 3
 --- !u!114 &1034461686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -881,9 +861,9 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1034461685}
-        m_TargetAssemblyTypeName: Player.CharacterController, Assembly-CSharp
-        m_MethodName: MoveInputValues
+      - m_Target: {fileID: 1034461687}
+        m_TargetAssemblyTypeName: _01_9thWave.Scripts.Player.PlayerMovement, Assembly-CSharp
+        m_MethodName: ReadMoveInputVector
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -897,8 +877,8 @@ MonoBehaviour:
     m_ActionName: Player/Move
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1034461685}
-        m_TargetAssemblyTypeName: Player.CharacterController, Assembly-CSharp
+      - m_Target: {fileID: 1034461687}
+        m_TargetAssemblyTypeName: _01_9thWave.Scripts.Player.PlayerMovement, Assembly-CSharp
         m_MethodName: Jump
         m_Mode: 0
         m_Arguments:
@@ -913,8 +893,8 @@ MonoBehaviour:
     m_ActionName: Player/Jump
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1034461685}
-        m_TargetAssemblyTypeName: Player.CharacterController, Assembly-CSharp
+      - m_Target: {fileID: 1034461688}
+        m_TargetAssemblyTypeName: _01_9thWave.Scripts.Player.PlayerGrab, Assembly-CSharp
         m_MethodName: Grab
         m_Mode: 0
         m_Arguments:
@@ -932,6 +912,76 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1034461687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034461678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f97d58915a758489ffa1141056b465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _groundMaxSpeed: 8
+  _groundMoveSmoother: 0.3
+  _inAirMaxSpeed: 8
+  _inAirMoveSmoother: 0.55
+  maxTimeInAir: 0.8
+  _jumpForce: 11
+  _jumpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.3
+      value: 1
+      inSlope: -0.021742279
+      outSlope: -0.021742279
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.079572886
+    - serializedVersion: 3
+      time: 0.8
+      value: -1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1034461688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034461678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8877b12e61061a64ca1978e4117e76c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _holdPoint: {fileID: 1160593064}
+  _grabCheck: {fileID: 1609659801}
+  _gradRadius: 1
+  _whatIsGrabbable:
+    serializedVersion: 2
+    m_Bits: 256
+  _grabDistance: 3
 --- !u!1 &1160593063
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,7 +993,7 @@ GameObject:
   - component: {fileID: 1160593064}
   - component: {fileID: 1160593066}
   - component: {fileID: 1160593065}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HoldPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1053,7 +1103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1609659801}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GrabPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1120,7 +1170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1769717695}
   - component: {fileID: 1769717696}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1206,6 +1256,7 @@ GameObject:
   - component: {fileID: 1939659306}
   - component: {fileID: 1939659305}
   - component: {fileID: 1939659308}
+  - component: {fileID: 1939659309}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1331,6 +1382,21 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1939659309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939659304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f58c79f86f6cce40825d465b8348bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _deadZone: 0.05
+  cameraSpeed: 5
+  player: {fileID: 1034461684}
 --- !u!1 &1976139660
 GameObject:
   m_ObjectHideFlags: 0
