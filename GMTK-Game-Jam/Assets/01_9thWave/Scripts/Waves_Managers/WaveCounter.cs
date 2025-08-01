@@ -34,9 +34,11 @@ namespace WavesManagers
             if (Instance != null)
                 Destroy(Instance);
             Instance = this;
-
-            EventsCaller.Instance.GetEvent(EventsManagers.EventType.Wave).AddListenerToGameEvent(IncreaseWaveNumber);
         }
+
+        private void Start() => 
+            EventsCaller.Instance.GetEvent(EventsManagers.EventType.Wave)
+            .AddListenerToGameEvent(IncreaseWaveNumber);
 
         public void IncreaseWaveNumber()
         {
