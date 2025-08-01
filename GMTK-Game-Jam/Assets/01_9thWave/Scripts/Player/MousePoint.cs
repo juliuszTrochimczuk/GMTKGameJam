@@ -1,20 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MousePoint : MonoBehaviour
+namespace _01_9thWave.Scripts.Player
 {
-    // Start is called before the first frame update
-    void Start()
+    public class MousePoint : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0f; // Keep z = 0 in 2D
-        transform.position = mousePos;
+        void Update()
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = 0f;
+            transform.position = mousePos;
+        }
     }
 }
