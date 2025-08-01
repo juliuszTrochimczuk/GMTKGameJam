@@ -13,6 +13,8 @@ namespace _01_9thWave.Scripts.Player
         [SerializeField] private float _gradRadius;
         [SerializeField] private LayerMask _whatIsGrabbable;
         [SerializeField] private float _grabDistance = 3f;
+        [SerializeField] private MousePoint _mousePoint;
+
 
         private bool _isGrounded;
         private bool _isGrabbing = false;
@@ -22,12 +24,12 @@ namespace _01_9thWave.Scripts.Player
         
         private Rigidbody2D _rb;
         private CircleCollider2D collider;
-        private MousePoint _mousePoint;
+        //private MousePoint _mousePoint;
         private PlayerAnimator _animator;
 
         private void Start()
         {
-            _mousePoint = GetComponentInChildren<MousePoint>();
+            //_mousePoint = GetComponentInChildren<MousePoint>();
             _rb = GetComponent<Rigidbody2D>();
             collider = GetComponent<CircleCollider2D>();
             _animator = GetComponent<PlayerAnimator>();

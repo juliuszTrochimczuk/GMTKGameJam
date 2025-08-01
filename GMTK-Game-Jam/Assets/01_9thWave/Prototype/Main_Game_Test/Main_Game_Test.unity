@@ -586,7 +586,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1034461684}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1030901823
 SpriteRenderer:
@@ -832,7 +832,6 @@ Transform:
   - {fileID: 1769717695}
   - {fileID: 1609659801}
   - {fileID: 1160593064}
-  - {fileID: 1030901822}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1034461685
@@ -856,6 +855,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _grabDistance: 3
+  _mousePoint: {fileID: 1030901825}
 --- !u!114 &1034461686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1802,4 +1802,5 @@ SceneRoots:
   - {fileID: 1976139662}
   - {fileID: 1983985110}
   - {fileID: 1765706817}
+  - {fileID: 1030901822}
   - {fileID: 1034461684}
