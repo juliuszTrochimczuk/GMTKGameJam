@@ -12,15 +12,9 @@ namespace _01_9thWave.Scripts.Player
         [SerializeField] private float _grabDistance = 3f;
         [SerializeField] private float _grabMagnitude = 2f;
         [SerializeField] private float _normalGravityScale = 5f;
+        [SerializeField] private MousePoint _mousePoint;
 
         private Rigidbody2D _heldObject;
-        private MousePoint _mousePoint;
-
-        private void Awake()
-        {
-            _mousePoint = GetComponentInChildren<MousePoint>();
-        }
-
 
         private void FixedUpdate()
         {

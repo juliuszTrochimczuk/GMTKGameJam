@@ -1335,6 +1335,7 @@ MonoBehaviour:
   _grabDistance: 3
   _grabMagnitude: 2
   _normalGravityScale: 5
+  _mousePoint: {fileID: 1030901825}
 --- !u!114 &1034461690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1404,6 +1405,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _groundLayers:
+    serializedVersion: 2
+    m_Bits: 265
   _groundMaxSpeed: 8
   _groundMoveSmoother: 0.08
   _inAirMaxSpeed: 8
