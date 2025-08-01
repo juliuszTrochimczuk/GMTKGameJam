@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f193cbb-ddb3-415f-ad0e-bc1b76146cdf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GMTK-Game-Jam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GMTK-Game-Jam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_9thWave/Prototype/Main_Game_Test/Main_Game_Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_9thWave/Prototype/Main_Game_Test/Main_Game_Test.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/01_9thWave/Scripts/Player/PlayerCharacterController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_9thWave/Scripts/Player/PlayerCharacterController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +50,7 @@
     "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "GrabPolish",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -112,7 +114,7 @@
       <option name="presentableId" value="Default" />
       <updated>1754038763283</updated>
       <workItem from="1754038765848" duration="10848000" />
-      <workItem from="1754049729466" duration="9789000" />
+      <workItem from="1754049729466" duration="10415000" />
     </task>
     <servers />
   </component>

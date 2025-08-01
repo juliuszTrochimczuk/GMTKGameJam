@@ -30,12 +30,15 @@ namespace _01_9thWave.Scripts.Player
             _mousePoint = GetComponentInChildren<MousePoint>();
             _rb = GetComponent<Rigidbody2D>();
             collider = GetComponent<CircleCollider2D>();
+            _animator = GetComponent<PlayerAnimator>();
         }
 
         void FixedUpdate()
         {
             CheckIfGrounded();
+            _animator.FacingCheck(_inputVector.x);
             _rb.velocity = new Vector2(_inputVector.x * playerSpeed, _rb.velocity.y);
+            if (_inputVector.x != 0) Walk(); else Idle();
             
             if (_heldObject != null)
             {
@@ -47,11 +50,24 @@ namespace _01_9thWave.Scripts.Player
         }
 
         public void MoveInputValues(CallbackContext ctx) => _inputVector = ctx.ReadValue<Vector2>();
+        
+        private void Walk()
+        {
+            _animator.WalkAnimation();
+        }
+        
+        private void Idle()
+        {
+            _animator.IdleAnimation();
+        }
 
         public void Jump(CallbackContext ctx)
         {
             if (_isGrounded)
+            {
+                _animator.JumpAnimation();
                 Jump();
+            }
         }
 
         private void Jump() => 
