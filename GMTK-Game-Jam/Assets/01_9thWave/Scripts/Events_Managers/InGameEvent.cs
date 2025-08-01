@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Managers
+namespace EventsManagers
 {
     [Serializable]
     public class InGameEvent
     {
         [SerializeField] private float eventCooldown;
+        [SerializeField] private float eventDelay;
         [SerializeField] private bool timerRunOnGameStart;
 
         [SerializeField] private UnityEvent gameEvent;
@@ -46,6 +47,7 @@ namespace Managers
 
         private IEnumerator TimerHandler()
         {
+            yield return new WaitForSeconds(eventDelay);
             while (true)
             {
                 gameEvent.Invoke();
