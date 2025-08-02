@@ -29,6 +29,8 @@ namespace WavesManagers
             }
         }
 
+        public bool IsLastWave => WaveNumber == maxWave;
+
         public static WaveCounter Instance { get; private set; }
 
         private void Awake()

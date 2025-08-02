@@ -125,6 +125,7 @@ namespace _01_9thWave.Scripts.Player
             {
                 _verticalVelocity = _jumpForce * _jumpCurve.Evaluate(time / maxTimeInAir);
 
+
                 time += Time.fixedDeltaTime;
                 yield return new WaitForFixedUpdate();
             }
