@@ -26,17 +26,19 @@ namespace _01_9thWave.Scripts.Player
 
         private void FixedUpdate()
         {
+            
+        }
+
+        private void Update()
+        {
             _holdPoint.position = CalculateGrabPointPosition();
             if (_heldObject != null)
             {
                 _heldObject.gravityScale = 0f;
                 _heldObject.velocity = (_holdPoint.position - _heldObject.transform.position) * _grabMagnitude;
             }
-        }
-
-        private void Update()
-        {
             Grab();
+            
         }
 
         private Vector2 CalculateGrabPointPosition()
@@ -66,6 +68,10 @@ namespace _01_9thWave.Scripts.Player
             { 
                 Cursor.SetCursor(_openHandCursorTexture, Vector2.zero, CursorMode.Auto);
             }
+            else if (_heldObject == null)
+            {
+                Cursor.SetCursor(_normalCursorTexture, Vector2.zero, CursorMode.Auto);
+            }
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
                 if (hit != null)
@@ -84,7 +90,6 @@ namespace _01_9thWave.Scripts.Player
                     _heldObject.gameObject.layer = LayerMask.NameToLayer("MovableObject");
                     _heldObject.gravityScale = _normalGravityScale;
                 }
-                Cursor.SetCursor(_normalCursorTexture, Vector2.zero, CursorMode.Auto);
                 Debug.Log("Released");
                 _heldObject = null;
             }
