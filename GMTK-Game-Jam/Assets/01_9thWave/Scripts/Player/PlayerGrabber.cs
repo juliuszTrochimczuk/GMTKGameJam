@@ -6,35 +6,33 @@ namespace _01_9thWave.Scripts.Player
     public class PlayerGrabber : MonoBehaviour
     {
         [SerializeField] private Transform _holdPoint;
-        [SerializeField] private Transform _grabCheck;
         [SerializeField] private float _gradRadius;
         [SerializeField] private LayerMask _whatIsGrabbable;
         [SerializeField] private float _grabDistance = 3f;
         [SerializeField] private float _grabMagnitude = 2f;
         [SerializeField] private float _normalGravityScale = 5f;
-
+        [SerializeField] private Transform _mousePoint;
         private Rigidbody2D _heldObject;
-        private MousePoint _mousePoint;
+        
 
-        private void Awake()
-        {
-            _mousePoint = GetComponentInChildren<MousePoint>();
-        }
+        
 
 
         private void FixedUpdate()
         {
-            if (_heldObject == null)
-                return;
+            
 
             RaycastHit2D hit = Physics2D.Raycast(transform.position, _mousePoint.transform.position, _grabDistance, 8);
             if (hit.collider != null)
                 _holdPoint.position = hit.point;
             else
                 _holdPoint.transform.position = (_mousePoint.transform.position - transform.position).normalized * _grabDistance + transform.position;
-
-            _heldObject.gravityScale = 0f;
-            _heldObject.velocity = (_holdPoint.position - _heldObject.transform.position) * _grabMagnitude;
+            if (_heldObject != null)
+            {
+                _heldObject.gravityScale = 0f;
+                _heldObject.velocity = (_holdPoint.position - _heldObject.transform.position) * _grabMagnitude;
+            }
+           
         }
 
         public void Grab(CallbackContext ctx)
@@ -43,7 +41,7 @@ namespace _01_9thWave.Scripts.Player
             {
                 if (_heldObject == null)
                 {
-                    Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, _gradRadius, _whatIsGrabbable);
+                    Collider2D[] hitColliders = Physics2D.OverlapCircleAll(_holdPoint.position, _gradRadius, _whatIsGrabbable);
 
                     if (hitColliders.Length <= 0)
                         return;
