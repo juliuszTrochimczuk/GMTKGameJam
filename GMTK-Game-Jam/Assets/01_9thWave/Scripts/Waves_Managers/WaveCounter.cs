@@ -10,6 +10,8 @@ namespace WavesManagers
         [SerializeField] private UnityEvent WhenMaxWaveAchived;
 
         [SerializeField] private int maxWave;
+        
+        [SerializeField] private UnityEvent<int,int> newWaveEvent;
 
         private int waveNumber;
 
@@ -50,7 +52,10 @@ namespace WavesManagers
                 EventsCaller.Instance.GetEvent(EventsManagers.EventType.Wave).RemoveListenerFromGameEvent(IncreaseWaveNumber);
             }
             else
+            {
                 WaveNumber++;
+                newWaveEvent.Invoke(waveNumber, maxWave);
+            }
         }
 
         public void ResetWaveNumber() => WaveNumber = 0;
