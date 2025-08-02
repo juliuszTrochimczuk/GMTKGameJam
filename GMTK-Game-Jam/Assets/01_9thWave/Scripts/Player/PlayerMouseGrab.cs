@@ -8,14 +8,17 @@ namespace _01_9thWave.Scripts.Player
     public class PlayerGrabMouse : MonoBehaviour
     {
         [SerializeField] private Transform _holdPoint;
-        [SerializeField] private float _gradRadius;
         [SerializeField] private LayerMask _whatIsGrabbable;
         [SerializeField] private float _grabDistance = 3f;
         [SerializeField] private float _grabMagnitude = 2f;
         [SerializeField] private float _normalGravityScale = 5f;
         [SerializeField] private Transform _mousePoint;
         [SerializeField] private Texture2D _grabCursorTexture;
+        [SerializeField] private Texture2D _normalCursorTexture;
+        [SerializeField] private Texture2D _openHandCursorTexture;
+        
         private Rigidbody2D _heldObject;
+        
         
 
         
@@ -57,10 +60,11 @@ namespace _01_9thWave.Scripts.Player
 
         public void Grab()
         {
+            
             Collider2D hit = Physics2D.OverlapPoint(_holdPoint.position, _whatIsGrabbable);
             if (hit != null)
             { 
-                // Cursor.SetCursor(_grabCursorTexture, Vector2.zero, CursorMode.Auto);
+                Cursor.SetCursor(_openHandCursorTexture, Vector2.zero, CursorMode.Auto);
             }
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
@@ -69,6 +73,7 @@ namespace _01_9thWave.Scripts.Player
                     Debug.Log("Grabbed");
                     _heldObject = hit.GetComponent<Rigidbody2D>();
                     _heldObject.gameObject.layer = LayerMask.NameToLayer("GrabbedObject");
+                    Cursor.SetCursor(_grabCursorTexture, Vector2.zero, CursorMode.Auto);
                 }
             }
 
@@ -79,6 +84,7 @@ namespace _01_9thWave.Scripts.Player
                     _heldObject.gameObject.layer = LayerMask.NameToLayer("MovableObject");
                     _heldObject.gravityScale = _normalGravityScale;
                 }
+                Cursor.SetCursor(_normalCursorTexture, Vector2.zero, CursorMode.Auto);
                 Debug.Log("Released");
                 _heldObject = null;
             }
