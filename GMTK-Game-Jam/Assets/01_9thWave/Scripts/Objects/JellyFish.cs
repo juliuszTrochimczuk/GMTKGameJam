@@ -1,3 +1,4 @@
+using _01_9thWave.Scripts.Audio;
 using _01_9thWave.Scripts.Player;
 using UnityEngine;
 
@@ -38,6 +39,7 @@ namespace Objects
 
             if (!_playerJumped)
             {
+                AudioManager.Instance.PlayJellyfishJumpSound();
                 _animator.SetTrigger("Jump");
                 playerMovement.Jump(_jumpForce, _inAirTime);
             }
@@ -58,7 +60,7 @@ namespace Objects
 
         private bool IsPlayerColliding()
         {
-            Vector2 playerCheckPosition = playerMovement.transform.position - (Vector3.down * playerRadius);
+            Vector2 playerCheckPosition = playerMovement.transform.position + (Vector3.down * playerRadius);
             return Mathf.Abs(playerCheckPosition.x - _checkJumpTransform.position.x) <= _checkJumpZone.x && 
                 Mathf.Abs(playerCheckPosition.y - _checkJumpTransform.position.y) <= _checkJumpZone.y;
         }
