@@ -30,6 +30,7 @@ namespace Objects
 
         private void Update()
         {
+            Debug.Log(IsPlayerColliding());
             if (!IsPlayerColliding())
             {
                 _playerJumped = false;
@@ -40,6 +41,7 @@ namespace Objects
             {
                 _animator.SetTrigger("Jump");
                 playerMovement.Jump(_jumpForce, _inAirTime);
+                
             }
 
             _playerJumped = true;
@@ -58,7 +60,10 @@ namespace Objects
 
         private bool IsPlayerColliding()
         {
-            Vector2 playerCheckPosition = playerMovement.transform.position - (Vector3.down * playerRadius);
+            Vector2 playerCheckPosition = playerMovement.transform.position + (Vector3.down * playerRadius);
+            Debug.Log(playerCheckPosition);
+            Debug.Log(Mathf.Abs(playerCheckPosition.x - _checkJumpTransform.position.x) <= _checkJumpZone.x);
+            Debug.Log(Mathf.Abs(playerCheckPosition.y - _checkJumpTransform.position.y) <= _checkJumpZone.y);
             return Mathf.Abs(playerCheckPosition.x - _checkJumpTransform.position.x) <= _checkJumpZone.x && 
                 Mathf.Abs(playerCheckPosition.y - _checkJumpTransform.position.y) <= _checkJumpZone.y;
         }
