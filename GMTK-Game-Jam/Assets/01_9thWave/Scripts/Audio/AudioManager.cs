@@ -10,6 +10,9 @@ namespace _01_9thWave.Scripts.Audio
         [Header("Background Music")]
         [SerializeField] private AudioSource _backgroundMusicSource;
         
+        [Header("Sound Effects")]
+        [SerializeField] private AudioSource _footstepSource;
+        
         public void SetMasterVolume(float volume) { _audioMixer.SetFloat("masterVolume", volume); }
     
         public void SetSoundEffectsVolume(float volume) { _audioMixer.SetFloat("soundEffectsVolume", volume); }
