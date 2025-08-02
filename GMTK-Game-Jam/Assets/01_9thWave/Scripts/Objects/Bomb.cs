@@ -10,6 +10,7 @@ namespace Objects
         [SerializeField] private float _explosionStrength;
         [SerializeField] private float _playerStunDuration;
         [SerializeField] private LayerMask _explosionMask;
+        [SerializeField] private GameObject _explosionVFX;
 
         private Rigidbody2D _rb;
         private Collider2D _collider;
@@ -44,8 +45,9 @@ namespace Objects
                 float explosionStrength = _explosionStrength * ((_explosionRadius - explosionDirection.magnitude)/ _explosionRadius);
                 @object.GetComponent<Rigidbody2D>().AddForce((explosionDirection + Vector2.up) * explosionStrength);
             }
-            //LATER ADD HERE SPAWNING EFFECT
+            GameObject explosionVFX = Instantiate(_explosionVFX, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            Destroy(explosionVFX, 1.0f);
         }
     }
 }

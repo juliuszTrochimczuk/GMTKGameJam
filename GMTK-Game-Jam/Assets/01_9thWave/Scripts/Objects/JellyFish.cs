@@ -14,12 +14,15 @@ namespace Objects
         [SerializeField] private Color _gizmosColor;
         [SerializeField] private bool _showGizmos;
 
+        private Animator _animator;
         private PlayerMovement playerMovement;
         private bool _playerJumped;
         private float playerRadius;
 
         private void Awake()
         {
+            _animator = GetComponent<Animator>();
+
             GameObject player = GameObject.FindWithTag("Player");
             playerMovement = player.GetComponent<PlayerMovement>();
             playerRadius = player.GetComponent<CircleCollider2D>().radius;
@@ -35,6 +38,7 @@ namespace Objects
 
             if (!_playerJumped)
             {
+                _animator.SetTrigger("Jump");
                 playerMovement.Jump(_jumpForce, _inAirTime);
             }
 
