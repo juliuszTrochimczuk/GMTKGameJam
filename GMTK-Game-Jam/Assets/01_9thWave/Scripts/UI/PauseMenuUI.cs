@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace _01_9thWave.Scripts.UI
 {
@@ -25,5 +26,12 @@ namespace _01_9thWave.Scripts.UI
                 }
             }
         }
+
+        public void LoadScene(string sceneName)
+        {
+            SceneManager.LoadScene(sceneName);
+            unpauseEvent.Invoke();
+        }
+
     }
 }
