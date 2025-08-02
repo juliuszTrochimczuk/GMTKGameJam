@@ -9,7 +9,6 @@ namespace _01_9thWave.Scripts.Player
 {
     public class PlayerMovement : MonoBehaviour
     {
-        [SerializeField] private AudioManager _audioManager;
         [SerializeField] private UnityEvent onJump;
         [SerializeField] private UnityEvent onLanding;
         [SerializeField] private UnityEvent<float> onChangingDirection;
@@ -89,7 +88,7 @@ namespace _01_9thWave.Scripts.Player
                 if (_walkTimer >= _timeBetweenSteps)
                 {
                     _walkTimer = Random.Range(0f, 0.2f);
-                    _audioManager.PlayFootstepEffects();
+                    AudioManager.Instance.PlayFootstepEffects();
                 }
             }
         }

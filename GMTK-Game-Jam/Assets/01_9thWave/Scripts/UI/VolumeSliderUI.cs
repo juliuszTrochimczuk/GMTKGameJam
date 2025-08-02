@@ -9,6 +9,8 @@ namespace _01_9thWave.Scripts.UI
 {
     public class VolumeSliderUI : MonoBehaviour, IPointerUpHandler
     {
+        [SerializeField] private AudioManager audioManager;
+        
         [SerializeField] private GameObject masterVolumeObject;
         
         [SerializeField] private UnityEvent<float> sliderEvent;
@@ -16,6 +18,7 @@ namespace _01_9thWave.Scripts.UI
         public void OnPointerUp(PointerEventData eventData)
         {
             sliderEvent.Invoke(Mathf.Log10(masterVolumeObject.GetComponent<Slider>().value) * 20);
+            AudioManager.Instance.PlayClickSound();
         }
     }
 }

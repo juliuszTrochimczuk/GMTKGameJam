@@ -1,3 +1,4 @@
+using _01_9thWave.Scripts.Audio;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -29,9 +30,9 @@ namespace _01_9thWave.Scripts.UI
 
         public void LoadScene(string sceneName)
         {
+            AudioManager.Instance.PlayClickSound();
             SceneManager.LoadScene(sceneName);
             unpauseEvent.Invoke();
         }
-
     }
 }

@@ -1,9 +1,10 @@
+using _01_9thWave.Scripts.Singleton;
 using UnityEngine;
 using UnityEngine.Audio;
 
 namespace _01_9thWave.Scripts.Audio
 {
-    public class AudioManager : MonoBehaviour
+    public class AudioManager : SingletonDoNotDestroy<AudioManager>
     {
         [SerializeField] private AudioMixer _audioMixer;
         
@@ -12,6 +13,9 @@ namespace _01_9thWave.Scripts.Audio
         
         [Header("Sound Effects")]
         [SerializeField] private AudioSource _footstepSource;
+        
+        [Header("Menu Sound Effects")]
+        [SerializeField] private AudioSource _clickSource;
         
         public void SetMasterVolume(float volume) { _audioMixer.SetFloat("masterVolume", volume); }
     
@@ -26,6 +30,8 @@ namespace _01_9thWave.Scripts.Audio
             _footstepSource.pitch = Random.Range(0.8f, 1.2f);
             _footstepSource.Play();
         }
+        
+        public void PlayClickSound() { _clickSource.Play(); }
         public void StopBackgroundMusic() { _backgroundMusicSource.Stop(); }
         
         public void SetBackgroundMusicSource(AudioSource musicSource) { _backgroundMusicSource = musicSource; }
