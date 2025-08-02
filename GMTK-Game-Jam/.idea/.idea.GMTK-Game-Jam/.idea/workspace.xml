@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2f193cbb-ddb3-415f-ad0e-bc1b76146cdf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GMTK-Game-Jam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GMTK-Game-Jam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_9thWave/Scripts/Objects/VictoryZone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_9thWave/Scripts/Objects/VictoryZone.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01_9thWave/Scripts/Player/PlayerGrabber.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_9thWave/Scripts/Player/PlayerGrabber.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_9thWave/Prototype/Main_Game_Test/Main_Game_Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_9thWave/Prototype/Main_Game_Test/Main_Game_Test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_9thWave/Scripts/Player/PlayerAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_9thWave/Scripts/Player/PlayerAnimator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01_9thWave/Scripts/Player/PlayerHandsAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01_9thWave/Scripts/Player/PlayerHandsAnimator.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,13 +97,15 @@
       <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="25196">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="25196" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list />
+        <list>
+          <MonoRuntime />
+        </list>
       </option>
       <option name="selectedOptions">
         <list />
@@ -122,7 +125,7 @@
       <workItem from="1754038765848" duration="10848000" />
       <workItem from="1754049729466" duration="11700000" />
       <workItem from="1754070134422" duration="534000" />
-      <workItem from="1754123710728" duration="950000" />
+      <workItem from="1754123710728" duration="7901000" />
     </task>
     <servers />
   </component>

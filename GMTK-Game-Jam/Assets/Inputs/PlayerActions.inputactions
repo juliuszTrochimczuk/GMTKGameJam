@@ -26,8 +26,17 @@
                 },
                 {
                     "name": "Grab",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "e59d635c-26f7-4c47-bfc8-e28868168b33",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "600ce5f1-e14e-4e15-9342-da848f1e6811",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -48,9 +57,9 @@
                 },
                 {
                     "name": "",
-                    "id": "4c470142-eeee-4498-9165-ea8374b4c152",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
+                    "id": "01bfe251-b1f3-4bfd-9b3d-92c5c8f5be25",
+                    "path": "<Mouse>/position",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "",
                     "action": "Grab",
@@ -89,6 +98,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "2850e910-989c-4916-a4bc-d11b314f4850",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

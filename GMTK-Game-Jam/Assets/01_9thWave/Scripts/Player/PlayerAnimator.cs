@@ -13,13 +13,13 @@ namespace _01_9thWave.Scripts.Player
             if (direction > 0)
             {
                 Vector3 scaler = transform.localScale;
-                scaler.x = 1;
+                scaler.x = -1;
                 transform.localScale = scaler;
             }
             else if (direction < 0)
             {
                 Vector3 scaler = transform.localScale;
-                scaler.x = -1;
+                scaler.x = 1;
                 transform.localScale = scaler;
             }
         }

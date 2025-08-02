@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _01_9thWave.Scripts.Events_Managers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,6 +15,7 @@ namespace EventsManagers
         [SerializeField] private bool timerRunOnGameStart;
 
         [SerializeField] private UnityEvent gameEvent;
+        [SerializeField] private UIEvent uiEvent;
         public void AddListenerToGameEvent(UnityAction action) => gameEvent.AddListener(action);
         public void RemoveListenerFromGameEvent(UnityAction action) => gameEvent.RemoveListener(action);
 
@@ -51,6 +53,7 @@ namespace EventsManagers
             while (true)
             {
                 gameEvent.Invoke();
+                uiEvent.Invoke(eventCooldown);
                 yield return new WaitForSeconds(eventCooldown);
             }
         }
