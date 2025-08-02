@@ -1,7 +1,9 @@
 using System.Collections;
+using _01_9thWave.Scripts.Audio;
 using UnityEngine;
 using UnityEngine.Events;
 using static UnityEngine.InputSystem.InputAction;
+using Random = UnityEngine.Random;
 
 namespace _01_9thWave.Scripts.Player
 {
@@ -16,6 +18,8 @@ namespace _01_9thWave.Scripts.Player
         [Header("Walking")]
         [SerializeField] private float _groundMaxSpeed;
         [SerializeField] private float _groundMoveSmoother;
+        [SerializeField] private float _timeBetweenSteps;
+
 
         [Header("Jumping")]
         [SerializeField] private float _inAirMaxSpeed;
@@ -23,13 +27,15 @@ namespace _01_9thWave.Scripts.Player
         [SerializeField] private float maxTimeInAir;
         [SerializeField] private float _jumpForce;
         [SerializeField] private AnimationCurve _jumpCurve;
-
+        
         private CircleCollider2D _collider;
         private Rigidbody2D _rb;
 
         private float _verticalVelocity;
         private float _horizontalVelocity;
         private float _currentHorizontalVelocity;
+
+        private float _walkTimer;
 
         public float InputDirection { get; private set; }
         private float _MaxSpeed
@@ -53,6 +59,7 @@ namespace _01_9thWave.Scripts.Player
             }
         }
         private bool _onGround;
+        private bool _canMove = true;
 
         private void Awake()
         {
@@ -69,8 +76,21 @@ namespace _01_9thWave.Scripts.Player
             else
                 _rb.gravityScale = 9.89f;
 
-                _horizontalVelocity = Mathf.SmoothDamp(_horizontalVelocity, InputDirection, ref _currentHorizontalVelocity, _MoveSmoother);
-            _rb.velocity = new Vector2(_horizontalVelocity * _MaxSpeed, _verticalVelocity);
+            _horizontalVelocity = Mathf.SmoothDamp(_horizontalVelocity, InputDirection, ref _currentHorizontalVelocity, _MoveSmoother);
+            
+            if (_canMove)
+                _rb.velocity = new Vector2(_horizontalVelocity * _MaxSpeed, _verticalVelocity);
+            
+            _walkTimer += Time.fixedDeltaTime;
+
+            if (_onGround && Mathf.Abs(InputDirection) > 0.01f)
+            {
+                if (_walkTimer >= _timeBetweenSteps)
+                {
+                    _walkTimer = Random.Range(0f, 0.2f);
+                    AudioManager.Instance.PlayFootstepEffects();
+                }
+            }
         }
 
         public void ReadMoveInputVector(CallbackContext ctx)
@@ -83,6 +103,18 @@ namespace _01_9thWave.Scripts.Player
         {
             if (_onGround && ctx.performed)
                 StartCoroutine(Jumping());
+        }
+
+        public void Jump(float jumpForce, float inAirTime) => StartCoroutine(Jumping(jumpForce, inAirTime));
+
+        public void StunPlayer(float delay) => StartCoroutine(MovementDelay(delay));
+        
+        private IEnumerator MovementDelay(float delay)
+        {
+            _canMove = false;
+            _rb.velocity = Vector2.zero;
+            yield return new WaitForSeconds(delay);
+            _canMove = true;
         }
 
         private IEnumerator Jumping()
@@ -101,9 +133,26 @@ namespace _01_9thWave.Scripts.Player
             _verticalVelocity = 0;
         }
 
+        private IEnumerator Jumping(float jumpForce, float inAirTime)
+        {
+            float time = 0.0f;
+            onJump.Invoke();
+            do
+            {
+                _verticalVelocity = jumpForce * _jumpCurve.Evaluate(time / inAirTime);
+
+                time += Time.fixedDeltaTime;
+                yield return new WaitForFixedUpdate();
+            }
+            while (time <= inAirTime || !_onGround);
+            onLanding.Invoke();
+            _verticalVelocity = 0;
+        }
+
         private void IsPlayerOnGround()
         {
             _onGround = Physics2D.Raycast(transform.position, Vector2.down, _collider.radius + 0.05f, _groundLayers);
         }
+
     }
 }
