@@ -15,7 +15,7 @@ namespace _01_9thWave.Scripts.Audio
         
         public void SetMasterVolume(float volume) { _audioMixer.SetFloat("masterVolume", volume); }
     
-        public void SetSoundEffectsVolume(float volume) { _audioMixer.SetFloat("soundEffectsVolume", volume); }
+        public void SetSoundEffectsVolume(float volume) { _audioMixer.SetFloat("effectsVolume", volume); }
     
         public void SetMusicVolume(float volume) { _audioMixer.SetFloat("musicVolume", volume); }
 
