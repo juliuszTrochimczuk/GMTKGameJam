@@ -1,12 +1,17 @@
+using System;
 using System.Collections;
+using _01_9thWave.Scripts.Audio;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 using static UnityEngine.InputSystem.InputAction;
+using Random = UnityEngine.Random;
 
 namespace _01_9thWave.Scripts.Player
 {
     public class PlayerMovement : MonoBehaviour
     {
+        [SerializeField] private AudioManager _audioManager;
         [SerializeField] private UnityEvent onJump;
         [SerializeField] private UnityEvent onLanding;
         [SerializeField] private UnityEvent<float> onChangingDirection;
@@ -16,6 +21,8 @@ namespace _01_9thWave.Scripts.Player
         [Header("Walking")]
         [SerializeField] private float _groundMaxSpeed;
         [SerializeField] private float _groundMoveSmoother;
+        [SerializeField] private float _timeBetweenSteps;
+
 
         [Header("Jumping")]
         [SerializeField] private float _inAirMaxSpeed;
@@ -23,13 +30,15 @@ namespace _01_9thWave.Scripts.Player
         [SerializeField] private float maxTimeInAir;
         [SerializeField] private float _jumpForce;
         [SerializeField] private AnimationCurve _jumpCurve;
-
+        
         private CircleCollider2D _collider;
         private Rigidbody2D _rb;
 
         private float _verticalVelocity;
         private float _horizontalVelocity;
         private float _currentHorizontalVelocity;
+
+        private float _walkTimer;
 
         public float InputDirection { get; private set; }
         private float _MaxSpeed
@@ -69,8 +78,19 @@ namespace _01_9thWave.Scripts.Player
             else
                 _rb.gravityScale = 9.89f;
 
-                _horizontalVelocity = Mathf.SmoothDamp(_horizontalVelocity, InputDirection, ref _currentHorizontalVelocity, _MoveSmoother);
+            _horizontalVelocity = Mathf.SmoothDamp(_horizontalVelocity, InputDirection, ref _currentHorizontalVelocity, _MoveSmoother);
             _rb.velocity = new Vector2(_horizontalVelocity * _MaxSpeed, _verticalVelocity);
+            
+            _walkTimer += Time.fixedDeltaTime;
+
+            if (_onGround && Math.Abs(InputDirection) > 0.01f)
+            {
+                if (_walkTimer >= _timeBetweenSteps)
+                {
+                    _walkTimer = Random.Range(0f, 0.2f);
+                    _audioManager.PlayFootstepEffects();
+                }
+            }
         }
 
         public void ReadMoveInputVector(CallbackContext ctx)

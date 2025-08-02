@@ -21,6 +21,11 @@ namespace _01_9thWave.Scripts.Audio
 
         public void PlayBackgroundMusic() { _backgroundMusicSource.Play(); }
 
+        public void PlayFootstepEffects()
+        {
+            _footstepSource.pitch = Random.Range(0.8f, 1.2f);
+            _footstepSource.Play();
+        }
         public void StopBackgroundMusic() { _backgroundMusicSource.Stop(); }
         
         public void SetBackgroundMusicSource(AudioSource musicSource) { _backgroundMusicSource = musicSource; }
