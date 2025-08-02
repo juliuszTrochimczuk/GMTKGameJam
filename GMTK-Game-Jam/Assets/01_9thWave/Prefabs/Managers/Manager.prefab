@@ -1,0 +1,195 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3637754283397738453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1334586452067922782}
+  - component: {fileID: 5199955313374646361}
+  - component: {fileID: 3215405980231350333}
+  - component: {fileID: 8929252657645424583}
+  - component: {fileID: 8626121251918276488}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1334586452067922782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3637754283397738453}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5199955313374646361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3637754283397738453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 381ee58492034d3419843954b1277a25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvents:
+    _serializedList:
+    - Key: 0
+      Value:
+        eventCooldown: 10
+        eventDelay: 0
+        timerRunOnGameStart: 1
+        gameEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 0}
+              m_TargetAssemblyTypeName: Obstacles.WaveWind, Assembly-CSharp
+              m_MethodName: StartWind
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        uiEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 0}
+              m_TargetAssemblyTypeName: _01_9thWave.Scripts.UI.WaveCooldownBar, Assembly-CSharp
+              m_MethodName: StartCooldownBar
+              m_Mode: 0
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+    - Key: 1
+      Value:
+        eventCooldown: 10.1
+        eventDelay: 0
+        timerRunOnGameStart: 1
+        gameEvent:
+          m_PersistentCalls:
+            m_Calls: []
+        uiEvent:
+          m_PersistentCalls:
+            m_Calls: []
+--- !u!114 &3215405980231350333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3637754283397738453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5005be5e70c3a014ca1b1dc92c863732, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WhenMaxWaveAchived:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8929252657645424583}
+        m_TargetAssemblyTypeName: ObjectsManagers.ObjectDrawer, Assembly-CSharp
+        m_MethodName: StopSpawnObjectsAfterMaxWave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: _01_9thWave.Scripts.UI.WaveCountUI, Assembly-CSharp
+        m_MethodName: ResetWaveCount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  maxWave: 3
+  newWaveEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: _01_9thWave.Scripts.UI.WaveCountUI, Assembly-CSharp
+        m_MethodName: UpdateWaveCounts
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8929252657645424583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3637754283397738453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b951f933ec9d4d74a95e1934bdc77bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawningArea: {fileID: 0}
+  objectsPool:
+  - minSpawnObjectsNumber: 1
+    maxSpawnObjectsNumber: 2
+    objects:
+    - {fileID: 3946431111185856798, guid: cbbb2cba3795f4aea8563cbd7ac5c7e5, type: 3}
+  - minSpawnObjectsNumber: 2
+    maxSpawnObjectsNumber: 4
+    objects:
+    - {fileID: 6048797991637806344, guid: 8370e51b860c84b3d95a419e0104a084, type: 3}
+    - {fileID: 5758023806615766333, guid: eedcfe235f2884d1da1dc2b483e977b2, type: 3}
+  - minSpawnObjectsNumber: 8
+    maxSpawnObjectsNumber: 12
+    objects:
+    - {fileID: 7460458169361549764, guid: 7bf6dc83ed11f44479c96fa861a6a833, type: 3}
+    - {fileID: 6993471607661478981, guid: dd9d06ff4d8794c6a8ac6189cd9ca955, type: 3}
+    - {fileID: 6048797991637806344, guid: 8370e51b860c84b3d95a419e0104a084, type: 3}
+    - {fileID: 3946431111185856798, guid: cbbb2cba3795f4aea8563cbd7ac5c7e5, type: 3}
+    - {fileID: 5758023806615766333, guid: eedcfe235f2884d1da1dc2b483e977b2, type: 3}
+--- !u!114 &8626121251918276488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3637754283397738453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b74ac23186ffb4da8c07b0dbb61db7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
