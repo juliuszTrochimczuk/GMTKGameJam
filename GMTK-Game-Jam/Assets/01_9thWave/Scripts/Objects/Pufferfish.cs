@@ -1,6 +1,7 @@
 using EventsManagers;
 using System.Collections;
 using System.Collections.Generic;
+using _01_9thWave.Scripts.Audio;
 using UnityEngine;
 
 public class Pufferfish : MonoBehaviour
@@ -50,6 +51,7 @@ public class Pufferfish : MonoBehaviour
 
     private IEnumerator BigFormHandler()
     {
+        AudioManager.Instance.PlayPufferFishSound();
         TransitionVariants(_variantBig);
         yield return new WaitForSeconds(_durationInBig);
         TransitionVariants(_variantSmall);

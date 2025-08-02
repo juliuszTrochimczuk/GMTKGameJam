@@ -163,9 +163,9 @@ Transform:
   - {fileID: 4616106283001610315}
   - {fileID: 390824078997152894}
   - {fileID: 3791055976420337985}
-  - {fileID: 8322261659050503862}
   - {fileID: 1786744373284011501}
   - {fileID: 3384842956484595181}
+  - {fileID: 2216035419812922883}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2666298673370536067
@@ -183,10 +183,11 @@ MonoBehaviour:
   _audioMixer: {fileID: 24100000, guid: d6bceca552d53184dac5314c3faac09b, type: 2}
   _backgroundMusicSource: {fileID: 0}
   _footstepSource: {fileID: 3936609079565259461}
-  _jellyfishJumpSource: {fileID: 2294656407690765250}
+  _jellyfishJumpSource: {fileID: 0}
   _bombExplosionSource: {fileID: 2187789033956554391}
   _backgroundWaveCalm: {fileID: 496820911557123239}
   _waveHits: {fileID: 6497944752332826377}
+  _pufferFishSource: {fileID: 4062445355152625618}
   _clickSource: {fileID: 5616047925821278130}
 --- !u!82 &5773997299868206434
 AudioSource:
@@ -284,7 +285,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &2585315042423752865
+--- !u!1 &3604492798844267499
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,22 +293,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8322261659050503862}
-  - component: {fileID: 2294656407690765250}
+  - component: {fileID: 2216035419812922883}
+  - component: {fileID: 4062445355152625618}
   m_Layer: 0
-  m_Name: JellyfishJump
+  m_Name: PufferFish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8322261659050503862
+--- !u!4 &2216035419812922883
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2585315042423752865}
+  m_GameObject: {fileID: 3604492798844267499}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -316,18 +317,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2515032466252542029}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &2294656407690765250
+--- !u!82 &4062445355152625618
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2585315042423752865}
+  m_GameObject: {fileID: 3604492798844267499}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4680225109329428672, guid: d6bceca552d53184dac5314c3faac09b, type: 2}
-  m_audioClip: {fileID: 8300000, guid: ba88062f0bcab9446aa1012a8f4714f1, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 55d206b49cdc10a4f997d243c4a8a10f, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
