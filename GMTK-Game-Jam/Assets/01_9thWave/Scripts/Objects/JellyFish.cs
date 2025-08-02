@@ -5,7 +5,7 @@ namespace Objects
 {
     public class JellyFish : MonoBehaviour
     {
-        [SerializeField] private float _checkJumpRadius;
+        [SerializeField] private Vector2 _checkJumpZone;
         [SerializeField] private Transform _checkJumpTransform;
         [SerializeField] private float _jumpForce;
         [SerializeField] private float _inAirTime;
@@ -30,7 +30,7 @@ namespace Objects
 
         private void Update()
         {
-            if (Vector3.Distance(_checkJumpTransform.position - (Vector3.down * playerRadius), playerMovement.transform.position) > _checkJumpRadius)
+            if (!IsPlayerColliding())
             {
                 _playerJumped = false;
                 return;
@@ -53,7 +53,14 @@ namespace Objects
             }
 
             Gizmos.color = _gizmosColor;
-            Gizmos.DrawSphere(_checkJumpTransform.position, _checkJumpRadius);
+            Gizmos.DrawCube(new(_checkJumpTransform.position.x, _checkJumpTransform.position.y), _checkJumpZone);
+        }
+
+        private bool IsPlayerColliding()
+        {
+            Vector2 playerCheckPosition = playerMovement.transform.position - (Vector3.down * playerRadius);
+            return Mathf.Abs(playerCheckPosition.x - _checkJumpTransform.position.x) <= _checkJumpZone.x && 
+                Mathf.Abs(playerCheckPosition.y - _checkJumpTransform.position.y) <= _checkJumpZone.y;
         }
     }
 }

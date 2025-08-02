@@ -998,6 +998,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jellyfish
       objectReference: {fileID: 0}
+    - target: {fileID: 1239085343788639851, guid: 5eb4aa14c77b3f544b595909dd1243e7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.045
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239085343788639851, guid: 5eb4aa14c77b3f544b595909dd1243e7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.372
+      objectReference: {fileID: 0}
     - target: {fileID: 4034946256211382690, guid: 5eb4aa14c77b3f544b595909dd1243e7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.73778796
@@ -1037,6 +1045,14 @@ PrefabInstance:
     - target: {fileID: 4034946256211382690, guid: 5eb4aa14c77b3f544b595909dd1243e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454639471660496221, guid: 5eb4aa14c77b3f544b595909dd1243e7, type: 3}
+      propertyPath: _checkJumpZone.x
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454639471660496221, guid: 5eb4aa14c77b3f544b595909dd1243e7, type: 3}
+      propertyPath: _checkJumpZone.y
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
