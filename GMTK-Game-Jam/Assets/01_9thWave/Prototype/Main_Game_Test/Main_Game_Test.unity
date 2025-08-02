@@ -1798,9 +1798,9 @@ MonoBehaviour:
   _grabMagnitude: 2
   _normalGravityScale: 5
   _mousePoint: {fileID: 1030901822}
-  _grabCursorTexture: {fileID: 0}
-  _normalCursorTexture: {fileID: 0}
-  _openHandCursorTexture: {fileID: 0}
+  _grabCursorTexture: {fileID: 2800000, guid: 54ecb24f2c86973489b34ffd0467fe08, type: 3}
+  _normalCursorTexture: {fileID: 2800000, guid: 1f68a5c862012364da77b2c45cbe4268, type: 3}
+  _openHandCursorTexture: {fileID: 2800000, guid: 7e61dc0f11254df4394a4601904ddb42, type: 3}
 --- !u!1 &1160593063
 GameObject:
   m_ObjectHideFlags: 0
