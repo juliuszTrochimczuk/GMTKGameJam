@@ -182,6 +182,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &212750230 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2784671002371446758, guid: a75ace4aa4bd5594fa256633473dc710, type: 3}
+  m_PrefabInstance: {fileID: 2214865785177907840}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &255992677
 GameObject:
   m_ObjectHideFlags: 3
@@ -830,11 +835,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!82 &559479568 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4062445355152625618, guid: a75ace4aa4bd5594fa256633473dc710, type: 3}
-  m_PrefabInstance: {fileID: 2214865785177907840}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &611506613
 GameObject:
   m_ObjectHideFlags: 0
@@ -2307,13 +2307,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2666298673370536067, guid: a75ace4aa4bd5594fa256633473dc710, type: 3}
-      propertyPath: _pufferFishSource
-      value: 
-      objectReference: {fileID: 559479568}
-    - target: {fileID: 2666298673370536067, guid: a75ace4aa4bd5594fa256633473dc710, type: 3}
       propertyPath: _jellyfishJumpSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 212750230}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

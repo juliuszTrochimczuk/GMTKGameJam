@@ -183,7 +183,7 @@ MonoBehaviour:
   _audioMixer: {fileID: 24100000, guid: d6bceca552d53184dac5314c3faac09b, type: 2}
   _backgroundMusicSource: {fileID: 0}
   _footstepSource: {fileID: 3936609079565259461}
-  _jellyfishJumpSource: {fileID: 0}
+  _jellyfishJumpSource: {fileID: 2784671002371446758}
   _bombExplosionSource: {fileID: 2187789033956554391}
   _backgroundWaveCalm: {fileID: 496820911557123239}
   _waveHits: {fileID: 6497944752332826377}
