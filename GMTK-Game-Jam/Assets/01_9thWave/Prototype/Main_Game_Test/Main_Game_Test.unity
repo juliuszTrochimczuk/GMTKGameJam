@@ -122,206 +122,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &3924940
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3924944}
-  - component: {fileID: 3924943}
-  - component: {fileID: 3924942}
-  - component: {fileID: 3924941}
-  - component: {fileID: 3924945}
-  m_Layer: 0
-  m_Name: Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &3924941
+--- !u!114 &3924945 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8626121251918276488, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+  m_PrefabInstance: {fileID: 3751639631051767543}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3924940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b951f933ec9d4d74a95e1934bdc77bdd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawningArea: {fileID: 1976139661}
-  objectsPool:
-  - minSpawnObjectsNumber: 1
-    maxSpawnObjectsNumber: 2
-    objects:
-    - {fileID: 3946431111185856798, guid: cbbb2cba3795f4aea8563cbd7ac5c7e5, type: 3}
-  - minSpawnObjectsNumber: 2
-    maxSpawnObjectsNumber: 4
-    objects:
-    - {fileID: 6048797991637806344, guid: 8370e51b860c84b3d95a419e0104a084, type: 3}
-    - {fileID: 5758023806615766333, guid: eedcfe235f2884d1da1dc2b483e977b2, type: 3}
-  - minSpawnObjectsNumber: 8
-    maxSpawnObjectsNumber: 12
-    objects:
-    - {fileID: 7460458169361549764, guid: 7bf6dc83ed11f44479c96fa861a6a833, type: 3}
-    - {fileID: 6993471607661478981, guid: dd9d06ff4d8794c6a8ac6189cd9ca955, type: 3}
-    - {fileID: 6048797991637806344, guid: 8370e51b860c84b3d95a419e0104a084, type: 3}
-    - {fileID: 3946431111185856798, guid: cbbb2cba3795f4aea8563cbd7ac5c7e5, type: 3}
-    - {fileID: 5758023806615766333, guid: eedcfe235f2884d1da1dc2b483e977b2, type: 3}
---- !u!114 &3924942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3924940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5005be5e70c3a014ca1b1dc92c863732, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WhenMaxWaveAchived:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3924941}
-        m_TargetAssemblyTypeName: ObjectsManagers.ObjectDrawer, Assembly-CSharp
-        m_MethodName: StopSpawnObjectsAfterMaxWave
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1068006658}
-        m_TargetAssemblyTypeName: _01_9thWave.Scripts.UI.WaveCountUI, Assembly-CSharp
-        m_MethodName: ResetWaveCount
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  maxWave: 3
-  newWaveEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1068006658}
-        m_TargetAssemblyTypeName: _01_9thWave.Scripts.UI.WaveCountUI, Assembly-CSharp
-        m_MethodName: UpdateWaveCounts
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &3924943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3924940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 381ee58492034d3419843954b1277a25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvents:
-    _serializedList:
-    - Key: 0
-      Value:
-        eventCooldown: 10
-        eventDelay: 0
-        timerRunOnGameStart: 1
-        gameEvent:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 1475411126}
-              m_TargetAssemblyTypeName: Obstacles.WaveWind, Assembly-CSharp
-              m_MethodName: StartWind
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-            - m_Target: {fileID: 1628358505}
-              m_TargetAssemblyTypeName: Objects.WaveAnimController, Assembly-CSharp
-              m_MethodName: PlayWaveAnimation
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-        uiEvent:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 2005047729}
-              m_TargetAssemblyTypeName: _01_9thWave.Scripts.UI.WaveCooldownBar, Assembly-CSharp
-              m_MethodName: StartCooldownBar
-              m_Mode: 0
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-    - Key: 1
-      Value:
-        eventCooldown: 10.1
-        eventDelay: 0
-        timerRunOnGameStart: 1
-        gameEvent:
-          m_PersistentCalls:
-            m_Calls: []
-        uiEvent:
-          m_PersistentCalls:
-            m_Calls: []
---- !u!4 &3924944
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3924940}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3924945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3924940}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40b74ac23186ffb4da8c07b0dbb61db7, type: 3}
@@ -2513,6 +2319,87 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a75ace4aa4bd5594fa256633473dc710, type: 3}
+--- !u!1001 &3751639631051767543
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1334586452067922782, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334586452067922782, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334586452067922782, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334586452067922782, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334586452067922782, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334586452067922782, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334586452067922782, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334586452067922782, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334586452067922782, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334586452067922782, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: newWaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1068006658}
+    - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1068006658}
+    - target: {fileID: 3637754283397738453, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: m_Name
+      value: Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199955313374646361, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: gameEvents._serializedList.Array.data[0].Value.uiEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2005047729}
+    - target: {fileID: 5199955313374646361, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: gameEvents._serializedList.Array.data[0].Value.gameEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1475411126}
+    - target: {fileID: 5199955313374646361, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: gameEvents._serializedList.Array.data[0].Value.gameEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1628358505}
+    - target: {fileID: 8929252657645424583, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: spawningArea
+      value: 
+      objectReference: {fileID: 1976139661}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
 --- !u!1001 &6600724572686399888
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2523,11 +2410,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5565418230431613162, guid: e21a40ca30d63f040adbdcc498457e98, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.8
+      value: -4.15
       objectReference: {fileID: 0}
     - target: {fileID: 5565418230431613162, guid: e21a40ca30d63f040adbdcc498457e98, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.1
+      value: 11.08
       objectReference: {fileID: 0}
     - target: {fileID: 5565418230431613162, guid: e21a40ca30d63f040adbdcc498457e98, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2636,7 +2523,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1939659307}
-  - {fileID: 3924944}
+  - {fileID: 3751639631051767543}
   - {fileID: 2214865785177907840}
   - {fileID: 40815579}
   - {fileID: 1976139662}
