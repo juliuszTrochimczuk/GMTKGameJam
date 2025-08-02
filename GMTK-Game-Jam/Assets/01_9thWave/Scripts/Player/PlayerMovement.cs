@@ -101,7 +101,9 @@ namespace _01_9thWave.Scripts.Player
             _verticalVelocity = 0;
         }
 
-        private void IsPlayerOnGround() =>
+        private void IsPlayerOnGround()
+        {
             _onGround = Physics2D.Raycast(transform.position, Vector2.down, _collider.radius + 0.05f, _groundLayers);
+        }
     }
 }

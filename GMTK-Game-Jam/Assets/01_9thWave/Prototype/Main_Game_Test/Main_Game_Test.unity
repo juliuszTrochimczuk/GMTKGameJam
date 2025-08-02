@@ -221,19 +221,7 @@ MonoBehaviour:
         timerRunOnGameStart: 1
         gameEvent:
           m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 1475411126}
-              m_TargetAssemblyTypeName: Obstacles.WaveWind, Assembly-CSharp
-              m_MethodName: StartWind
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
+            m_Calls: []
     - Key: 1
       Value:
         eventCooldown: 10.1
@@ -1326,15 +1314,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _holdPoint: {fileID: 1160593064}
-  _grabCheck: {fileID: 1609659801}
   _gradRadius: 1
   _whatIsGrabbable:
     serializedVersion: 2
     m_Bits: 256
-  _grabDistance: 3
+  _grabDistance: 1.75
   _grabMagnitude: 2
   _normalGravityScale: 5
-  _mousePoint: {fileID: 1030901825}
+  _mousePoint: {fileID: 1030901822}
 --- !u!114 &1034461690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1570,7 +1557,7 @@ GameObject:
   - component: {fileID: 1475411124}
   - component: {fileID: 1475411123}
   - component: {fileID: 1475411126}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: WaveWind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2130,7 +2117,7 @@ GameObject:
   - component: {fileID: 1983985110}
   - component: {fileID: 1983985112}
   - component: {fileID: 1983985111}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DefaultWind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
