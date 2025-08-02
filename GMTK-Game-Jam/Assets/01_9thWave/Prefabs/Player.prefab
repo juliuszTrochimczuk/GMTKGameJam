@@ -616,6 +616,7 @@ MonoBehaviour:
     m_Bits: 265
   _groundMaxSpeed: 8
   _groundMoveSmoother: 0.08
+  _timeBetweenSteps: 0.4
   _inAirMaxSpeed: 8
   _inAirMoveSmoother: 0.1
   maxTimeInAir: 0.8
