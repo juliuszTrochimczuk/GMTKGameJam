@@ -162,8 +162,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _velocityExplosionLevel: 5
-  _explosionRadius: 3
-  _explosionStrength: 5
+  _explosionRadius: 5
+  _explosionStrength: 100
+  _playerStunDuration: 0.8
   _explosionMask:
     serializedVersion: 2
     m_Bits: 384
