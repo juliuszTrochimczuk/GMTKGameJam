@@ -1,3 +1,4 @@
+using _01_9thWave.Scripts.Audio;
 using _01_9thWave.Scripts.Player;
 using UnityEngine;
 
@@ -45,6 +46,7 @@ namespace Objects
                 float explosionStrength = _explosionStrength * ((_explosionRadius - explosionDirection.magnitude)/ _explosionRadius);
                 @object.GetComponent<Rigidbody2D>().AddForce((explosionDirection + Vector2.up) * explosionStrength);
             }
+            AudioManager.Instance.PlayBombExplosionSound();
             GameObject explosionVFX = Instantiate(_explosionVFX, transform.position, Quaternion.identity);
             Destroy(gameObject);
             Destroy(explosionVFX, 1.0f);

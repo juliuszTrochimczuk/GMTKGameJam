@@ -14,6 +14,7 @@ namespace _01_9thWave.Scripts.Audio
         [Header("Game Sound Effects")]
         [SerializeField] private AudioSource _footstepSource;
         [SerializeField] private AudioSource _jellyfishJumpSource;
+        [SerializeField] private AudioSource _bombExplosionSource;
         
         [Header("Menu Sound Effects")]
         [SerializeField] private AudioSource _clickSource;
@@ -32,6 +33,8 @@ namespace _01_9thWave.Scripts.Audio
             _footstepSource.Play();
         }
         public void PlayJellyfishJumpSound() { _jellyfishJumpSource.Play(); }
+        public void PlayBombExplosionSound() { _bombExplosionSource.Play(); }
+
         public void PlayClickSound() { _clickSource.Play(); }
         public void StopBackgroundMusic() { _backgroundMusicSource.Stop(); }
         
