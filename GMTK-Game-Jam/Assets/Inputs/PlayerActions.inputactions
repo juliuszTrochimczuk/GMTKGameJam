@@ -26,12 +26,12 @@
                 },
                 {
                     "name": "Grab",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "e59d635c-26f7-4c47-bfc8-e28868168b33",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -48,9 +48,9 @@
                 },
                 {
                     "name": "",
-                    "id": "4c470142-eeee-4498-9165-ea8374b4c152",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
+                    "id": "01bfe251-b1f3-4bfd-9b3d-92c5c8f5be25",
+                    "path": "<Mouse>/position",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "",
                     "action": "Grab",

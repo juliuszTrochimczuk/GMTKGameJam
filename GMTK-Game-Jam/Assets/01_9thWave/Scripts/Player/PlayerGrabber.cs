@@ -22,7 +22,7 @@ namespace _01_9thWave.Scripts.Player
         {
             
 
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, _mousePoint.transform.position, _grabDistance, 8);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, _mousePoint.transform.position, _grabDistance, 0, 1);
             if (hit.collider != null)
                 _holdPoint.position = hit.point;
             else
