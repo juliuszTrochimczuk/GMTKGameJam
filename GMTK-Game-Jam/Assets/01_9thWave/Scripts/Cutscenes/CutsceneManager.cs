@@ -64,5 +64,13 @@ namespace Cutscenes
             }
             imageToTransition.color = newColor;
         }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                onCutsceneEnd.Invoke();
+            }
+        }
     }
 }
