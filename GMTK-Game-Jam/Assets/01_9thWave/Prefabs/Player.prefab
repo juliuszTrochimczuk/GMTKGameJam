@@ -684,7 +684,7 @@ MonoBehaviour:
   _whatIsGrabbable:
     serializedVersion: 2
     m_Bits: 256
-  _grabDistance: 6
+  _grabDistance: 15
   _grabMagnitude: 2
   _normalGravityScale: 5
   _mousePoint: {fileID: 0}

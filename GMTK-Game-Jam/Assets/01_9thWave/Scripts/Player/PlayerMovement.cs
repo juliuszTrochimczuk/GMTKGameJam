@@ -69,11 +69,10 @@ namespace _01_9thWave.Scripts.Player
             HandleFootsteps();
         }
 
-        private void Update()
+        public void JumpAction(CallbackContext ctx)
         {
-            if (_onGround && !_isJumping && Input.GetKeyDown(KeyCode.Space))
+            if (ctx.performed && _onGround && !_isJumping)
             {
-                Debug.Log("Jumping start");
                 StartJump();
             }
         }
@@ -83,8 +82,6 @@ namespace _01_9thWave.Scripts.Player
             InputDirection = ctx.ReadValue<float>();
             onChangingDirection.Invoke(InputDirection);
         }
-        
-
 
         public void Jump(float force, float duration)
         {
@@ -130,6 +127,7 @@ namespace _01_9thWave.Scripts.Player
         private void EndJump()
         {
             _isJumping = false;
+            onLanding.Invoke();
         }
 
         private void MoveCharacter()
