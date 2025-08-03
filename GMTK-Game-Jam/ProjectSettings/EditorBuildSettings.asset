@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/01_9thWave/Scenes/Main_Menu/Main_Menu.unity
     guid: c8128b36bd86a6045918b8b0fa495471
   - enabled: 1
-    path: Assets/01_9thWave/Prototype/Main_Game_Test/Main_Game_Test.unity
-    guid: f1c1b7eb747c5f543b74698c6359ab7c
+    path: Assets/01_9thWave/Scenes/FinalScene.unity
+    guid: e5435fe638cac9545b47d85acfc865a3
   m_configObjects: {}
