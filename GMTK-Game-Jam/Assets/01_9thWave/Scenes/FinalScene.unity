@@ -122,44 +122,15 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &5821661 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3637754283397738453, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
-  m_PrefabInstance: {fileID: 1701350966}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5821662 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8626121251918276488, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
   m_PrefabInstance: {fileID: 1701350966}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5821661}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40b74ac23186ffb4da8c07b0dbb61db7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5821667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5821661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ddc5df263695a74fae437ab8c7ba007, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5821668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5821661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e17f9d1666a4e844ba5344cdd40da5fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &60394934
@@ -604,7 +575,7 @@ PrefabInstance:
     - target: {fileID: 8489169112106129611, guid: f9231f6bee3c02046b6646e020e2d85d, type: 3}
       propertyPath: _onWindEnd.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
-      objectReference: {fileID: 5821668}
+      objectReference: {fileID: 0}
     - target: {fileID: 8489169112106129611, guid: f9231f6bee3c02046b6646e020e2d85d, type: 3}
       propertyPath: _onWindStart.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -811,6 +782,51 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1678284783}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &751528055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 751528057}
+  - component: {fileID: 751528056}
+  m_Layer: 0
+  m_Name: LostGame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &751528056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751528055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17f9d1666a4e844ba5344cdd40da5fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restartDelay: 1
+--- !u!4 &751528057
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751528055}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 487.2532, y: 277.66245, z: -2.910296}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &764777854
@@ -2659,7 +2675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
       propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
       propertyPath: newWaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2667,7 +2683,7 @@ PrefabInstance:
       objectReference: {fileID: 64658887}
     - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
       propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
       propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -2676,7 +2692,7 @@ PrefabInstance:
     - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
       propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 751528056}
     - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
       propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -2687,7 +2703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
       propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: LoadScene
+      value: RestartGame
       objectReference: {fileID: 0}
     - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
       propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
@@ -2695,7 +2711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
       propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Cutscenes.SceneLoader, Assembly-CSharp
+      value: LostGame, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
       propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
@@ -2703,7 +2719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
       propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: FinalScene
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
       propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -2752,13 +2768,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3637754283397738453, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5821667}
-    - targetCorrespondingSourceObject: {fileID: 3637754283397738453, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5821668}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
 --- !u!114 &1857376112 stripped
 MonoBehaviour:
@@ -3250,3 +3260,4 @@ SceneRoots:
   - {fileID: 958045248}
   - {fileID: 1429492737}
   - {fileID: 1594571095}
+  - {fileID: 751528057}
