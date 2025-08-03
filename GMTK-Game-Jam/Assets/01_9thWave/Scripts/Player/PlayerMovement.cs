@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using _01_9thWave.Scripts.Audio;
 using UnityEngine;
@@ -34,6 +35,7 @@ namespace _01_9thWave.Scripts.Player
         [SerializeField] private AnimationCurve _jumpCurve;
         [SerializeField] private float _minFallSpeed = -5f;
 
+
         private Rigidbody2D _rb;
         private CircleCollider2D _collider;
 
@@ -60,10 +62,20 @@ namespace _01_9thWave.Scripts.Player
 
         private void FixedUpdate()
         {
+            
             DetectGround();
             UpdateJumpState();
             MoveCharacter();
             HandleFootsteps();
+        }
+
+        private void Update()
+        {
+            if (_onGround && !_isJumping && Input.GetKeyDown(KeyCode.Space))
+            {
+                Debug.Log("Jumping start");
+                StartJump();
+            }
         }
 
         public void ReadMoveInputVector(CallbackContext ctx)
@@ -71,19 +83,11 @@ namespace _01_9thWave.Scripts.Player
             InputDirection = ctx.ReadValue<float>();
             onChangingDirection.Invoke(InputDirection);
         }
+        
 
-        public void Jump(CallbackContext ctx)
-        {
-            if (_onGround && ctx.performed)
-            {
-                StartJump();
-            }
-        }
 
         public void Jump(float force, float duration)
         {
-            _jumpForce = force;
-            _maxJumpDuration = duration;
             StartJump();
         }
 
