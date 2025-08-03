@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 namespace _01_9thWave.Scripts.Player
 {
@@ -61,6 +62,24 @@ namespace _01_9thWave.Scripts.Player
         {
             _handR.GetComponentInChildren<SpriteRenderer>().sprite = _clawTextureRClosed;
             _handL.GetComponentInChildren<SpriteRenderer>().sprite = _clawTextureLClosed;
+        }
+        
+        public void DisplayClaws()
+        {
+            StartCoroutine(DisplayClawsOperation());
+        }
+        
+        public void HideClaws()
+        {
+            _handR.SetActive(false);
+            _handL.SetActive(false);
+        }
+
+        private IEnumerator DisplayClawsOperation()
+        {
+            yield return new WaitForSeconds(0.8f);
+            _handR.SetActive(true);
+            _handL.SetActive(true);
         }
     }
 }
