@@ -9,13 +9,25 @@ namespace _01_9thWave.Scripts.UI
 {
     public class VolumeSliderUI : MonoBehaviour, IPointerUpHandler
     {
-        [SerializeField] private GameObject masterVolumeObject;
-        
-        [SerializeField] private UnityEvent<float> sliderEvent;
-        
+        [SerializeField] private AudioManager.VolumeType volumeType;
+
+        private Slider _slider;
+
+        private void Awake()
+        {
+            _slider = GetComponent<Slider>();
+            _slider.value = PlayerPrefs.GetFloat(volumeType.ToString(), 1.0f);
+        }
+
+        public void ChangeVolume(float value)
+        {
+            PlayerPrefs.SetFloat(volumeType.ToString(), value);
+            value = Mathf.Log10(value) * 20;
+            AudioManager.Instance.SetMixerVolume(volumeType, value);
+        }
+
         public void OnPointerUp(PointerEventData eventData)
         {
-            sliderEvent.Invoke(Mathf.Log10(masterVolumeObject.GetComponent<Slider>().value) * 20);
             AudioManager.Instance.PlayClickSound();
         }
     }

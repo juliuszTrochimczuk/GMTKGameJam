@@ -84,13 +84,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 939918885746827926}
   m_HandleRect: {fileID: 3730087018175435358}
   m_Direction: 0
-  m_MinValue: 0.0001
+  m_MinValue: 0.001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 250725639649551990}
+        m_TargetAssemblyTypeName: _01_9thWave.Scripts.UI.VolumeSliderUI, Assembly-CSharp
+        m_MethodName: ChangeVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &250725639649551990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,22 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b062a70bfb9a9ce4fa1c57890f8f5493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterVolumeObject: {fileID: 128334723969192435}
-  sliderEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: _01_9thWave.Scripts.Audio.AudioManager, Assembly-CSharp
-        m_MethodName: SetMasterVolume
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  volumeType: 0
 --- !u!1 &510917086078151247
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,13 +275,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 2172082533155405756}
   m_HandleRect: {fileID: 1640566604306677609}
   m_Direction: 0
-  m_MinValue: 0.0001
+  m_MinValue: 0.001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5678177255659429122}
+        m_TargetAssemblyTypeName: _01_9thWave.Scripts.UI.VolumeSliderUI, Assembly-CSharp
+        m_MethodName: ChangeVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5678177255659429122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,22 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b062a70bfb9a9ce4fa1c57890f8f5493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterVolumeObject: {fileID: 872847108843358731}
-  sliderEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: _01_9thWave.Scripts.Audio.AudioManager, Assembly-CSharp
-        m_MethodName: SetMusicVolume
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  volumeType: 2
 --- !u!1 &1380766895489877659
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,13 +616,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 7605201419296688103}
   m_HandleRect: {fileID: 7095724385039716651}
   m_Direction: 0
-  m_MinValue: 0.0001
+  m_MinValue: 0.001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6608417587746341994}
+        m_TargetAssemblyTypeName: _01_9thWave.Scripts.UI.VolumeSliderUI, Assembly-CSharp
+        m_MethodName: ChangeVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6608417587746341994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,22 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b062a70bfb9a9ce4fa1c57890f8f5493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterVolumeObject: {fileID: 2462185441193672493}
-  sliderEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: _01_9thWave.Scripts.Audio.AudioManager, Assembly-CSharp
-        m_MethodName: SetSoundEffectsVolume
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  volumeType: 1
 --- !u!1 &2970668637974220616
 GameObject:
   m_ObjectHideFlags: 0
