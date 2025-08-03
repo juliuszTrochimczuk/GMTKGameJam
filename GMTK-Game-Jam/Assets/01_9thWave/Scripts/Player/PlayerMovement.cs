@@ -33,7 +33,7 @@ namespace _01_9thWave.Scripts.Player
         [SerializeField] private float _jumpForce;
         [SerializeField] private float _maxJumpDuration;
         [SerializeField] private AnimationCurve _jumpCurve;
-        [SerializeField] private float _minFallSpeed = -5f;
+        [SerializeField] private float _minFallSpeed = -20f;
 
 
         private Rigidbody2D _rb;
@@ -148,9 +148,9 @@ namespace _01_9thWave.Scripts.Player
                 float eval = _jumpCurve.Evaluate(_jumpTimer / _maxJumpDuration);
                 vertVel = _jumpForce * eval;
             }
-            else if (!_onGround && _rb.velocity.y < 0f)
+            else if (!_onGround && _rb.velocity.y <= 0.01f)
             {
-                vertVel = Mathf.Max(_rb.velocity.y, _minFallSpeed);
+                vertVel = Mathf.Lerp(_rb.velocity.y, _minFallSpeed, MoveSmoother);
             }
             else
             {
