@@ -4,7 +4,7 @@ using UnityEngine.Audio;
 
 namespace _01_9thWave.Scripts.Audio
 {
-    public class AudioManager : SingletonDoNotDestroy<AudioManager>
+    public class AudioManager : Singleton<AudioManager>
     {
         [SerializeField] private AudioMixer _audioMixer;
         
@@ -15,6 +15,9 @@ namespace _01_9thWave.Scripts.Audio
         [SerializeField] private AudioSource _footstepSource;
         [SerializeField] private AudioSource _jellyfishJumpSource;
         [SerializeField] private AudioSource _bombExplosionSource;
+        [SerializeField] private AudioSource _backgroundWaveCalm;
+        [SerializeField] private AudioSource _waveHits;
+        [SerializeField] private AudioSource _pufferFishSource;
         
         [Header("Menu Sound Effects")]
         [SerializeField] private AudioSource _clickSource;
@@ -34,6 +37,10 @@ namespace _01_9thWave.Scripts.Audio
         }
         public void PlayJellyfishJumpSound() { _jellyfishJumpSource.Play(); }
         public void PlayBombExplosionSound() { _bombExplosionSource.Play(); }
+        public void PlayBackgroundWaveCalm() { _backgroundWaveCalm.Play(); }
+        public void PlayWaveHit() { _waveHits.Play(); }
+        public void PlayPufferFishSound() { _pufferFishSource.Play(); }
+        public void SetWaveHitPitch(float newPitch) => _waveHits.pitch = newPitch;
 
         public void PlayClickSound() { _clickSource.Play(); }
         public void StopBackgroundMusic() { _backgroundMusicSource.Stop(); }

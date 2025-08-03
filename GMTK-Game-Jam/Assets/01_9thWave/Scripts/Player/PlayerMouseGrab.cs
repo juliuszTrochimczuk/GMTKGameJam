@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,15 +19,12 @@ namespace _01_9thWave.Scripts.Player
         [SerializeField] private Texture2D _openHandCursorTexture;
         
         private Rigidbody2D _heldObject;
-        
-        
-
-        
+        private PlayerHandsAnimator _playerHandsAnimator;
 
 
-        private void FixedUpdate()
+        private void Start()
         {
-            
+            _playerHandsAnimator = GetComponent<PlayerHandsAnimator>();
         }
 
         private void Update()
@@ -76,7 +74,7 @@ namespace _01_9thWave.Scripts.Player
             {
                 if (hit != null)
                 {
-                    Debug.Log("Grabbed");
+                    _playerHandsAnimator.SwichClawState();
                     _heldObject = hit.GetComponent<Rigidbody2D>();
                     _heldObject.gameObject.layer = LayerMask.NameToLayer("GrabbedObject");
                     Cursor.SetCursor(_grabCursorTexture, Vector2.zero, CursorMode.Auto);
@@ -87,10 +85,10 @@ namespace _01_9thWave.Scripts.Player
             {
                 if (_heldObject != null)
                 {
+                    _playerHandsAnimator.SwichClawState();
                     _heldObject.gameObject.layer = LayerMask.NameToLayer("MovableObject");
                     _heldObject.gravityScale = _normalGravityScale;
                 }
-                Debug.Log("Released");
                 _heldObject = null;
             }
         }
