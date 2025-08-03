@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb056ee9fc169842b05e04d8148c25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _checkJumpZone: {x: 1.5, y: 0.3}
+  _checkJumpZone: {x: 3.34, y: 0.51}
   _checkJumpTransform: {fileID: 1239085343788639851}
   _jumpForce: 11
   _inAirTime: 1.3
