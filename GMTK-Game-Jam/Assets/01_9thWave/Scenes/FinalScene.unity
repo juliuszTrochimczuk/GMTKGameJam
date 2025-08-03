@@ -2225,37 +2225,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8622162243263017286, guid: 3ab34d831b5b974449bced9647e046fd, type: 3}
-      propertyPath: _onVictory.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8622162243263017286, guid: 3ab34d831b5b974449bced9647e046fd, type: 3}
-      propertyPath: _onVictory.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8622162243263017286, guid: 3ab34d831b5b974449bced9647e046fd, type: 3}
       propertyPath: _onVictory.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8750057}
-    - target: {fileID: 8622162243263017286, guid: 3ab34d831b5b974449bced9647e046fd, type: 3}
-      propertyPath: _onVictory.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8622162243263017286, guid: 3ab34d831b5b974449bced9647e046fd, type: 3}
-      propertyPath: _onVictory.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 8622162243263017286, guid: 3ab34d831b5b974449bced9647e046fd, type: 3}
-      propertyPath: _onVictory.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Cutscenes.SceneLoader, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8622162243263017286, guid: 3ab34d831b5b974449bced9647e046fd, type: 3}
-      propertyPath: _onVictory.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: EndingScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 8622162243263017286, guid: 3ab34d831b5b974449bced9647e046fd, type: 3}
-      propertyPath: _onVictory.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2976,20 +2948,60 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: maxWave
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
       propertyPath: newWaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 64658887}
     - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
       propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 8750057}
+    - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 64658887}
     - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
       propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: ResetWaveCount
       objectReference: {fileID: 0}
     - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
       propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Cutscenes.SceneLoader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: _01_9thWave.Scripts.UI.WaveCountUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: FinalScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215405980231350333, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
+      propertyPath: WhenMaxWaveAchived.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3637754283397738453, guid: b9ca6b5e8d7a0c94cbcca357ccad3b70, type: 3}
       propertyPath: m_Name
