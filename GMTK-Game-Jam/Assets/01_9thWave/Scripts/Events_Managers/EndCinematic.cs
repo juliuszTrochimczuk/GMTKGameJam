@@ -25,6 +25,9 @@
 
         void Update()
         {
+#if UNITY_WEBGL
+            LoadNextScene();
+#endif
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 LoadNextScene();
