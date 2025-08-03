@@ -2050,9 +2050,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5678177255659429122, guid: 19a44ca445c58774c92bd000df50367b, type: 3}
+      propertyPath: volumeType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678177255659429122, guid: 19a44ca445c58774c92bd000df50367b, type: 3}
       propertyPath: sliderEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1857376112}
+    - target: {fileID: 6608417587746341994, guid: 19a44ca445c58774c92bd000df50367b, type: 3}
+      propertyPath: volumeType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6608417587746341994, guid: 19a44ca445c58774c92bd000df50367b, type: 3}
       propertyPath: sliderEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
