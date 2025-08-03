@@ -41,6 +41,7 @@ namespace _01_9thWave.Scripts.Audio
         public void PlayWaveHit() { _waveHits.Play(); }
         public void PlayPufferFishSound() { _pufferFishSource.Play(); }
         public void SetWaveHitPitch(float newPitch) => _waveHits.pitch = newPitch;
+        public void SetWaveHitVolume(float newVolume) => _waveHits.volume = newVolume;
 
         public void PlayClickSound() { _clickSource.Play(); }
         public void StopBackgroundMusic() { _backgroundMusicSource.Stop(); }
