@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01_9thWave/Scenes/EndingScene.unity
     guid: 431a0af9355d00346aa99105fa311053
+  - enabled: 1
+    path: Assets/01_9thWave/Scenes/Credits.unity
+    guid: 434e1f7d5f025eb4a8eb3045dc96c4e0
   m_configObjects: {}
