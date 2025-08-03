@@ -1555,6 +1555,10 @@ PrefabInstance:
       propertyPath: _mousePoint
       value: 
       objectReference: {fileID: 60394934}
+    - target: {fileID: 4468760715137371080, guid: ba407c3b851a9e446ae8ca50a33f1f0a, type: 3}
+      propertyPath: _playerGrabMouse
+      value: 
+      objectReference: {fileID: 863608586}
     - target: {fileID: 5324135662351801245, guid: ba407c3b851a9e446ae8ca50a33f1f0a, type: 3}
       propertyPath: _mousePoint
       value: 
@@ -1605,6 +1609,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00f122b5ac924acba286d63a94135d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &863608586 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5324135662351801245, guid: ba407c3b851a9e446ae8ca50a33f1f0a, type: 3}
+  m_PrefabInstance: {fileID: 863608584}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e7586f8aa560b8478dabe188bb7d55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &893746173

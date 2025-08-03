@@ -39,6 +39,11 @@ namespace _01_9thWave.Scripts.Player
             
         }
 
+        public Rigidbody2D GetHeldObject()
+        {
+            return _heldObject;
+        }
+
         private Vector2 CalculateGrabPointPosition()
         {
             Vector2 holdPoint;
