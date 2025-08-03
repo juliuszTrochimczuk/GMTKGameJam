@@ -4,7 +4,7 @@ using UnityEngine.Audio;
 
 namespace _01_9thWave.Scripts.Audio
 {
-    public class AudioManager : SingletonDoNotDestroy<AudioManager>
+    public class AudioManager : Singleton<AudioManager>
     {
         [SerializeField] private AudioMixer _audioMixer;
         
