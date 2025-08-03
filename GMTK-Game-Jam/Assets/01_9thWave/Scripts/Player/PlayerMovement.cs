@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using _01_9thWave.Scripts.Audio;
 using UnityEngine;
@@ -7,67 +8,51 @@ using Random = UnityEngine.Random;
 
 namespace _01_9thWave.Scripts.Player
 {
+    [RequireComponent(typeof(Rigidbody2D), typeof(CircleCollider2D))]
     public class PlayerMovement : MonoBehaviour
     {
-        //for slope
+        // Slope detection
         [SerializeField] private float _groundRaycastSpacing = 0.3f;
-
+        [SerializeField] private LayerMask _groundLayers;
         private Vector2 _groundNormal = Vector2.up;
         private float _slopeRayLength = 0.2f;
-        
+
+        // Events
         [SerializeField] private UnityEvent onJump;
         [SerializeField] private UnityEvent onLanding;
         [SerializeField] private UnityEvent<float> onChangingDirection;
-
-        [SerializeField] private LayerMask _groundLayers;
 
         [Header("Walking")]
         [SerializeField] private float _groundMaxSpeed;
         [SerializeField] private float _groundMoveSmoother;
         [SerializeField] private float _timeBetweenSteps;
 
-
         [Header("Jumping")]
         [SerializeField] private float _inAirMaxSpeed;
-        [SerializeField] private float _targetGravScale = 9.89f;
-        [SerializeField] private float _minFallSpeed = -5f; // ensures you fall fast when stepping off
         [SerializeField] private float _inAirMoveSmoother;
-        [SerializeField] private float maxTimeInAir;
         [SerializeField] private float _jumpForce;
+        [SerializeField] private float _maxJumpDuration;
         [SerializeField] private AnimationCurve _jumpCurve;
-        
-        private CircleCollider2D _collider;
+        [SerializeField] private float _minFallSpeed = -20f;
+
+
         private Rigidbody2D _rb;
+        private CircleCollider2D _collider;
 
-        private float _verticalVelocity;
-        private float _horizontalVelocity;
-        private float _currentHorizontalVelocity;
-
-        private float _walkTimer;
-
+        // Movement state
         public float InputDirection { get; private set; }
-        private float _MaxSpeed
-        {
-            get
-            {
-                if (_onGround)
-                    return _groundMaxSpeed;
-                else
-                    return _inAirMaxSpeed;
-            }
-        }
-        private float _MoveSmoother
-        {
-            get
-            {
-                if (_onGround)
-                    return _groundMoveSmoother;
-                else
-                    return _inAirMoveSmoother;
-            }
-        }
         private bool _onGround;
         private bool _canMove = true;
+        private float _walkTimer;
+
+        // Jumping state
+        private bool _isJumping;
+        private float _jumpTimer;
+
+        private float _currentHorizontalVelocity;
+
+        private float MaxSpeed => _onGround ? _groundMaxSpeed : _inAirMaxSpeed;
+        private float MoveSmoother => _onGround ? _groundMoveSmoother : _inAirMoveSmoother;
 
         private void Awake()
         {
@@ -77,178 +62,179 @@ namespace _01_9thWave.Scripts.Player
 
         private void FixedUpdate()
         {
-            IsPlayerOnGround();
+            DetectGround();
+            UpdateJumpState();
+            MoveCharacter();
+            HandleFootsteps();
+        }
 
-            _rb.gravityScale = _onGround ? 1 : _targetGravScale;
-            
-            // If just walked off a ledge, ensure we start falling fast
-            if (!_onGround && _verticalVelocity == 0)
+        public void JumpAction(CallbackContext ctx)
+        {
+            if (ctx.performed && _onGround && !_isJumping)
             {
-                _verticalVelocity = _minFallSpeed;
+                StartJump();
             }
-
-            _horizontalVelocity = Mathf.SmoothDamp(_horizontalVelocity, InputDirection, ref _currentHorizontalVelocity, _MoveSmoother);
-
-            if (_canMove)
-            {
-                Vector2 velocity;
-                if (_onGround)
-                {
-                    Vector2 slopeDirection = new Vector2(_groundNormal.y, -_groundNormal.x).normalized;
-                    float speed = _horizontalVelocity * _MaxSpeed;
-                    velocity = slopeDirection * speed;
-                    velocity.y += _verticalVelocity;
-                }
-                else
-                {
-                    velocity = new Vector2(_horizontalVelocity * _MaxSpeed, _verticalVelocity);
-                }
-
-                _rb.velocity = velocity;
-            }
-
-            _walkTimer += Time.fixedDeltaTime;
-
-            if (_onGround && Mathf.Abs(InputDirection) > 0.01f)
-            {
-                if (_walkTimer >= _timeBetweenSteps)
-                {
-                    _walkTimer = Random.Range(0f, 0.2f);
-                    AudioManager.Instance.PlayFootstepEffects();
-                }
-            }
-            
         }
 
         public void ReadMoveInputVector(CallbackContext ctx)
         {
             InputDirection = ctx.ReadValue<float>();
-            onChangingDirection.Invoke(InputDirection);
+            //onChangingDirection.Invoke(InputDirection);
         }
 
-        public void Jump(CallbackContext ctx)
+        public void Jump(float force, float duration)
         {
-            if (_onGround && ctx.performed)
-                StartCoroutine(Jumping());
+            StartJump();
         }
 
-        public void Jump(float jumpForce, float inAirTime) => StartCoroutine(Jumping(jumpForce, inAirTime));
+        public void StunPlayer(float delay)
+        {
+            StartCoroutine(DisableMovement(delay));
+        }
 
-        public void StunPlayer(float delay) => StartCoroutine(MovementDelay(delay));
-        
-        private IEnumerator MovementDelay(float delay)
+        private IEnumerator DisableMovement(float delay)
         {
             _canMove = false;
-            //_rb.velocity = Vector2.zero;
             yield return new WaitForSeconds(delay);
             _canMove = true;
         }
 
-        private IEnumerator Jumping()
+        private void StartJump()
         {
-            float time = 0.0f;
+            _isJumping = true;
+            _jumpTimer = 0f;
             onJump.Invoke();
-            do
-            {
-                _verticalVelocity = _jumpForce * _jumpCurve.Evaluate(time / maxTimeInAir);
-
-
-                time += Time.fixedDeltaTime;
-                yield return new WaitForFixedUpdate();
-            }
-            while (time <= maxTimeInAir || !_onGround);
-            onLanding.Invoke();
-            _verticalVelocity = 0;
         }
 
-        private IEnumerator Jumping(float jumpForce, float inAirTime)
+        private void UpdateJumpState()
         {
-            float time = 0.0f;
-            onJump.Invoke();
-            do
+            if (_isJumping)
             {
-                _verticalVelocity = jumpForce * _jumpCurve.Evaluate(time / inAirTime);
-
-                time += Time.fixedDeltaTime;
-                yield return new WaitForFixedUpdate();
+                _jumpTimer += Time.fixedDeltaTime;
+                if (_jumpTimer >= _maxJumpDuration)
+                {
+                    EndJump();
+                }
             }
-            while (time <= inAirTime || !_onGround);
-            onLanding.Invoke();
-            _verticalVelocity = 0;
+            else if (!_onGround && _rb.velocity.y <= 0f)
+            {
+                // Falling after apex
+                _isJumping = false;
+            }
         }
 
-        private void IsPlayerOnGround()
+        private void EndJump()
         {
-            Vector2 origin = transform.position;
+            _isJumping = false;
+            onLanding.Invoke();
+        }
 
-            Vector2 leftOrigin = origin + Vector2.left * _groundRaycastSpacing;
-            Vector2 rightOrigin = origin + Vector2.right * _groundRaycastSpacing;
+        private void MoveCharacter()
+        {
+            if (!_canMove) return;
 
-            RaycastHit2D leftHit = Physics2D.Raycast(leftOrigin, Vector2.down, _collider.radius + _slopeRayLength, _groundLayers);
-            RaycastHit2D rightHit = Physics2D.Raycast(rightOrigin, Vector2.down, _collider.radius + _slopeRayLength, _groundLayers);
+            // Horizontal smoothing based on input
+            float targetH = InputDirection;
+            float smoothH = Mathf.SmoothDamp(_rb.velocity.x / MaxSpeed, targetH, ref _currentHorizontalVelocity, MoveSmoother);
+            float horizVel = smoothH * MaxSpeed;
 
-            if (leftHit && rightHit)
+            // Vertical velocity via jump curve or natural fall
+            float vertVel;
+            if (_isJumping)
             {
-                _onGround = true;
-                _groundNormal = ((leftHit.normal + rightHit.normal) * 0.5f).normalized;
+                float eval = _jumpCurve.Evaluate(_jumpTimer / _maxJumpDuration);
+                vertVel = _jumpForce * eval;
             }
-            if (leftHit)
+            else if (!_onGround && _rb.velocity.y <= 0.01f)
             {
-                _onGround = true;
-                _groundNormal = leftHit.normal;
-            }
-            else if (rightHit)
-            {
-                _onGround = true;
-                _groundNormal = rightHit.normal;
+                vertVel = Mathf.Lerp(_rb.velocity.y, _minFallSpeed, MoveSmoother);
             }
             else
             {
-                _onGround = false;
+                vertVel = _rb.velocity.y;
+            }
+
+            // Slope adjustment if grounded
+            Vector2 finalVel;
+            if (_onGround)
+            {
+                Vector2 slopeDir = new Vector2(_groundNormal.y, -_groundNormal.x).normalized;
+                finalVel = slopeDir * horizVel;
+                finalVel.y = vertVel;
+            }
+            else
+            {
+                finalVel = new Vector2(horizVel, vertVel);
+            }
+
+            _rb.velocity = finalVel;
+            
+            onChangingDirection.Invoke(InputDirection);
+        }
+
+        private void HandleFootsteps()
+        {
+            _walkTimer += Time.fixedDeltaTime;
+            if (_onGround && Mathf.Abs(InputDirection) > 0.01f && _walkTimer >= _timeBetweenSteps)
+            {
+                _walkTimer = Random.Range(0f, 0.2f);
+                AudioManager.Instance.PlayFootstepEffects();
+            }
+        }
+
+        private void DetectGround()
+        {
+            Vector2 origin = transform.position;
+            Vector2 left = origin + Vector2.left * _groundRaycastSpacing;
+            Vector2 right = origin + Vector2.right * _groundRaycastSpacing;
+            float len = _collider.radius + _slopeRayLength;
+
+            RaycastHit2D hitL = Physics2D.Raycast(left, Vector2.down, len, _groundLayers);
+            RaycastHit2D hitR = Physics2D.Raycast(right, Vector2.down, len, _groundLayers);
+
+            _onGround = false;
+            if (hitL && hitR)
+            {
+                _onGround = true;
+                _groundNormal = (hitL.normal + hitR.normal).normalized;
+            }
+            else if (hitL)
+            {
+                _onGround = true;
+                _groundNormal = hitL.normal;
+            }
+            else if (hitR)
+            {
+                _onGround = true;
+                _groundNormal = hitR.normal;
+            }
+            else
+            {
                 _groundNormal = Vector2.up;
             }
         }
 
-        
         private void OnDrawGizmos()
         {
-            if (_collider == null)
-                _collider = GetComponent<CircleCollider2D>();
-
+            if (_collider == null) _collider = GetComponent<CircleCollider2D>();
             Gizmos.color = Color.green;
-
             Vector2 origin = transform.position;
-            Vector2 leftOrigin = origin + Vector2.left * _groundRaycastSpacing;
-            Vector2 rightOrigin = origin + Vector2.right * _groundRaycastSpacing;
-            float rayLength = _collider.radius + _slopeRayLength;
+            Vector2 left = origin + Vector2.left * _groundRaycastSpacing;
+            Vector2 right = origin + Vector2.right * _groundRaycastSpacing;
+            float len = _collider.radius + _slopeRayLength;
 
-            // Left ray
-            Gizmos.DrawLine(leftOrigin, leftOrigin + Vector2.down * rayLength);
-            // Right ray
-            Gizmos.DrawLine(rightOrigin, rightOrigin + Vector2.down * rayLength);
+            Gizmos.DrawLine(left, left + Vector2.down * len);
+            Gizmos.DrawLine(right, right + Vector2.down * len);
 
 #if UNITY_EDITOR
-            // Optionally draw normals live if the game is playing
             if (Application.isPlaying)
             {
-                // Left
-                RaycastHit2D leftHit = Physics2D.Raycast(leftOrigin, Vector2.down, rayLength, _groundLayers);
-                if (leftHit)
-                {
-                    Gizmos.color = Color.red;
-                    Gizmos.DrawLine(leftHit.point, leftHit.point + leftHit.normal * 0.5f);
-                }
-
-                // Right
-                RaycastHit2D rightHit = Physics2D.Raycast(rightOrigin, Vector2.down, rayLength, _groundLayers);
-                if (rightHit)
-                {
-                    Gizmos.color = Color.red;
-                    Gizmos.DrawLine(rightHit.point, rightHit.point + rightHit.normal * 0.5f);
-                }
+                RaycastHit2D hitL = Physics2D.Raycast(left, Vector2.down, len, _groundLayers);
+                if (hitL) { Gizmos.color = Color.red; Gizmos.DrawLine(hitL.point, hitL.point + hitL.normal * 0.5f); }
+                RaycastHit2D hitR = Physics2D.Raycast(right, Vector2.down, len, _groundLayers);
+                if (hitR) { Gizmos.color = Color.red; Gizmos.DrawLine(hitR.point, hitR.point + hitR.normal * 0.5f); }
             }
 #endif
         }
-
     }
 }

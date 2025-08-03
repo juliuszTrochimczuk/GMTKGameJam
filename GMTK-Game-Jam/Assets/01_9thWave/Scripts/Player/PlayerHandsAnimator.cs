@@ -1,7 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Android;
-
 namespace _01_9thWave.Scripts.Player
 {
     public class PlayerHandsAnimator : MonoBehaviour
@@ -10,8 +8,12 @@ namespace _01_9thWave.Scripts.Player
         [SerializeField] private GameObject _handL;
         [SerializeField] private GameObject _mousePoint;
         [SerializeField] float _clawRotationSpeed = 5f;
-
+        [SerializeField] private Sprite _clawTextureROpen;
+        [SerializeField] private Sprite _clawTextureLOpen;
+        [SerializeField] private Sprite _clawTextureRClosed;
+        [SerializeField] private Sprite _clawTextureLClosed;
         private int rotationOffset;
+        private bool _clawsClosed = true;
         private void FixedUpdate()
         {
             Vector3 dirR = _handR.transform.position - _mousePoint.transform.position;
@@ -22,11 +24,11 @@ namespace _01_9thWave.Scripts.Player
 
             if (transform.localScale.x < 0)
             {
-                rotationOffset = -30;
+                rotationOffset = 0;
             }
             else
             {
-                rotationOffset = 30;
+                rotationOffset = 0;
             }
             Vector3 dirL = _handL.transform.position - _mousePoint.transform.position;
             float angleL = Mathf.Atan2(dirL.y, dirL.x) * Mathf.Rad2Deg;
@@ -34,6 +36,31 @@ namespace _01_9thWave.Scripts.Player
             _handL.transform.rotation = Quaternion.Lerp(_handL.transform.rotation , targetRotationL, Time.deltaTime * _clawRotationSpeed);
             
         }
-        
+
+        public void SwichClawState()
+        {
+            if (_clawsClosed)
+            {
+                _clawsClosed = false;
+                OpenClaws();
+            }
+            else if (!_clawsClosed)
+            {
+                _clawsClosed = true;
+                CloseClaws();
+            }
+        }
+
+        private void OpenClaws()
+        {
+            _handR.GetComponentInChildren<SpriteRenderer>().sprite = _clawTextureROpen;
+            _handL.GetComponentInChildren<SpriteRenderer>().sprite = _clawTextureLOpen;
+        }
+
+        private void CloseClaws()
+        {
+            _handR.GetComponentInChildren<SpriteRenderer>().sprite = _clawTextureRClosed;
+            _handL.GetComponentInChildren<SpriteRenderer>().sprite = _clawTextureLClosed;
+        }
     }
 }

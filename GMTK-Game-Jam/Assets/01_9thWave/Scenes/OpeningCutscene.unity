@@ -415,12 +415,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shots:
-  - duration: 1
-    shot: {fileID: 21300000, guid: a6fdbbc623423ef42996fa279cec49ab, type: 3}
-  - duration: 1.5
-    shot: {fileID: 21300000, guid: 749a90c4d2d5e634799378d8462b8ad5, type: 3}
-  - duration: 2
-    shot: {fileID: 21300000, guid: 777fb91121401ee45bbd7e620097d4c3, type: 3}
+  - duration: 3
+    shot: {fileID: 21300000, guid: 21231ff29c74bcc4a87a72cb9e5a9137, type: 3}
+  - duration: 3
+    shot: {fileID: 21300000, guid: 2dfbf288e75b9de4f9eed9117c81eb40, type: 3}
+  - duration: 3
+    shot: {fileID: 21300000, guid: f4e1fdc0022a18a45b7e5a6faf0d8fb7, type: 3}
+  - duration: 3
+    shot: {fileID: 21300000, guid: 82be189b321cb8a469a26bd348ba974d, type: 3}
   _shotsTransitionTime: 1
   _template: {fileID: 2113246999}
   onCutsceneEnd:
