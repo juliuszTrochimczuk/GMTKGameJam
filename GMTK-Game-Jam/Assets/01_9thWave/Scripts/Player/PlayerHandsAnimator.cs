@@ -22,11 +22,11 @@ namespace _01_9thWave.Scripts.Player
 
             if (transform.localScale.x < 0)
             {
-                rotationOffset = -30;
+                rotationOffset = 0;
             }
             else
             {
-                rotationOffset = 30;
+                rotationOffset = 0;
             }
             Vector3 dirL = _handL.transform.position - _mousePoint.transform.position;
             float angleL = Mathf.Atan2(dirL.y, dirL.x) * Mathf.Rad2Deg;

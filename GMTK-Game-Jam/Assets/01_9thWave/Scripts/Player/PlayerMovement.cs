@@ -33,7 +33,7 @@ namespace _01_9thWave.Scripts.Player
         [SerializeField] private float _jumpForce;
         [SerializeField] private float _maxJumpDuration;
         [SerializeField] private AnimationCurve _jumpCurve;
-        [SerializeField] private float _minFallSpeed = -5f;
+        [SerializeField] private float _minFallSpeed = -20f;
 
 
         private Rigidbody2D _rb;
