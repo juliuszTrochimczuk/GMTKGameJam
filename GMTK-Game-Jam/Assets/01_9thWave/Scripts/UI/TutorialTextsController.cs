@@ -41,7 +41,7 @@ namespace UI
                 yield return new WaitForSeconds(tutorial[i].duration);
                 yield return StartCoroutine(AlphaTransition(0));
             }
-            Destroy(gameObject);
+            Destroy(gameObject.transform.parent.gameObject);
         }
 
         private IEnumerator AlphaTransition(float targetAlpha)
