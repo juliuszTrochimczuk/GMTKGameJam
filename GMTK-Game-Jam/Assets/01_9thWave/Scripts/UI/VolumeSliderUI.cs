@@ -9,8 +9,6 @@ namespace _01_9thWave.Scripts.UI
 {
     public class VolumeSliderUI : MonoBehaviour, IPointerUpHandler
     {
-        [SerializeField] private AudioManager audioManager;
-        
         [SerializeField] private GameObject masterVolumeObject;
         
         [SerializeField] private UnityEvent<float> sliderEvent;

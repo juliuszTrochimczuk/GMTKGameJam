@@ -9,6 +9,11 @@ namespace _01_9thWave.Scripts.UI
     {
         private Slider _slider;
 
+        private void Awake()
+        {
+            UIManager.Instance.AddToUIManagerList(gameObject);
+        }
+        
         private void Start()
         {
             _slider = GetComponent<Slider>();
