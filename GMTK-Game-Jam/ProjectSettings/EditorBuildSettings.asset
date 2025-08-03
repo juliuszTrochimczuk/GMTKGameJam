@@ -9,6 +9,15 @@ EditorBuildSettings:
     path: Assets/01_9thWave/Scenes/Main_Menu/Main_Menu.unity
     guid: c8128b36bd86a6045918b8b0fa495471
   - enabled: 1
+    path: Assets/01_9thWave/Scenes/OpeningCutscene.unity
+    guid: c59f24d807b84bf44b8c886a17894784
+  - enabled: 1
     path: Assets/01_9thWave/Scenes/FinalScene.unity
     guid: e5435fe638cac9545b47d85acfc865a3
+  - enabled: 1
+    path: Assets/01_9thWave/Scenes/EndingScene.unity
+    guid: 431a0af9355d00346aa99105fa311053
+  - enabled: 1
+    path: Assets/01_9thWave/Scenes/Credits.unity
+    guid: 434e1f7d5f025eb4a8eb3045dc96c4e0
   m_configObjects: {}

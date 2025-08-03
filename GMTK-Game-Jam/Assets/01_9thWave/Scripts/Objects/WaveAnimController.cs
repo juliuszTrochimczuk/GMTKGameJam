@@ -9,6 +9,7 @@ namespace Objects
     public class WaveAnimController : MonoBehaviour
     {
         [SerializeField] private float[] _waveHitPitches;
+        [SerializeField] private float[] _waveHitVolume;
         private Animator _animator;
 
         private void Awake()
@@ -32,6 +33,7 @@ namespace Objects
         public void PlayWaveHitSounds()
         {
             AudioManager.Instance.SetWaveHitPitch(_waveHitPitches[WaveCounter.Instance.WaveNumber - 1]);
+            AudioManager.Instance.SetWaveHitVolume(_waveHitVolume[WaveCounter.Instance.WaveNumber - 1]);
             AudioManager.Instance.PlayWaveHit();
         }
     }

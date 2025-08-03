@@ -596,7 +596,7 @@ MonoBehaviour:
   _timeBetweenSteps: 0.4
   _inAirMaxSpeed: 10
   _inAirMoveSmoother: 0.01
-  _jumpForce: 35
+  _jumpForce: 25
   _maxJumpDuration: 0.8
   _jumpCurve:
     serializedVersion: 2
