@@ -8,22 +8,30 @@ namespace _01_9thWave.Scripts.UI
 {
     public class PauseMenuUI : MonoBehaviour
     {
+        [SerializeField] private GameObject pauseMenu;
         [SerializeField] private UnityEvent pauseEvent;
         [SerializeField] private UnityEvent unpauseEvent;
+        
+        private void Start()
+        {
+            UIManager.Instance.AddToUIManagerList(gameObject);
+        }
 
         public void FlipMenu(InputAction.CallbackContext ctx)
         {
             if (ctx.performed)
             {
-                if (gameObject.activeSelf)
+                if (pauseMenu.activeSelf)
                 {
                     unpauseEvent.Invoke();
-                    gameObject.SetActive(false);
+                    pauseMenu.SetActive(false);
+                    UIManager.Instance.ShowAllUIElements();
                 }
                 else
                 {
                     pauseEvent.Invoke();
-                    gameObject.SetActive(this);
+                    pauseMenu.SetActive(true);
+                    UIManager.Instance.ShowSingleUIElement(gameObject);
                 }
             }
         }

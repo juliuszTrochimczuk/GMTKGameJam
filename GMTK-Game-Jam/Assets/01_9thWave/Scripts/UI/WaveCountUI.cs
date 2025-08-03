@@ -12,6 +12,11 @@ namespace _01_9thWave.Scripts.UI
         private int _currentWaveCount = 0;
         private int _maxWaveCount = 0;
         
+        private void Awake()
+        {
+            UIManager.Instance.AddToUIManagerList(gameObject);
+        }
+        
         public void UpdateWaveCounts(int currentWaveNumber, int maxWaveNumber)
         {
             _currentWaveCount = currentWaveNumber;
