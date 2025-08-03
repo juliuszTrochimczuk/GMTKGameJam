@@ -62,7 +62,6 @@ namespace _01_9thWave.Scripts.Player
 
         private void FixedUpdate()
         {
-            
             DetectGround();
             UpdateJumpState();
             MoveCharacter();
@@ -80,7 +79,7 @@ namespace _01_9thWave.Scripts.Player
         public void ReadMoveInputVector(CallbackContext ctx)
         {
             InputDirection = ctx.ReadValue<float>();
-            onChangingDirection.Invoke(InputDirection);
+            //onChangingDirection.Invoke(InputDirection);
         }
 
         public void Jump(float force, float duration)
@@ -169,6 +168,8 @@ namespace _01_9thWave.Scripts.Player
             }
 
             _rb.velocity = finalVel;
+            
+            onChangingDirection.Invoke(InputDirection);
         }
 
         private void HandleFootsteps()
