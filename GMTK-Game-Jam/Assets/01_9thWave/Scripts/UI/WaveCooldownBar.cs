@@ -11,12 +11,12 @@ namespace _01_9thWave.Scripts.UI
 
         private void Awake()
         {
-            UIManager.Instance.AddToUIManagerList(gameObject);
+            _slider = GetComponent<Slider>();
         }
         
         private void Start()
         {
-            _slider = GetComponent<Slider>();
+            UIManager.Instance.AddToUIManagerList(gameObject);
         }
         
         public void StartCooldownBar(float fillTime) => StartCoroutine(FillCooldownBar(fillTime));
@@ -25,10 +25,7 @@ namespace _01_9thWave.Scripts.UI
         {
             float elapsedTime = 0f;
             while (elapsedTime < fillTime)
-            {
-                //_slider.value = Mathf.Lerp(_slider.minValue, _slider.maxValue, fillTime);
-                //fillTime += 0.375f * Time.deltaTime;
-                
+            {                
                 _slider.value = Mathf.Lerp(0f, 1f, elapsedTime / fillTime);
                 elapsedTime += Time.deltaTime;
                 yield return null;
