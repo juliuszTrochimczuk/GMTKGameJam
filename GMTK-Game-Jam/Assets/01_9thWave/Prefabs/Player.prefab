@@ -137,7 +137,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 168f50409dffbdc4db20ae941eebbbb5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8415094, g: 0.8415094, b: 0.8415094, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -221,7 +221,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 4f8cef312d27e8e4cb24259f1e1c6142, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.83396226, g: 0.83396226, b: 0.83396226, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -319,7 +319,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: f34415786f1ec8f4e9df43591f119cba, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.86415094, g: 0.86415094, b: 0.86415094, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -555,6 +555,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _groundRaycastSpacing: 0.6
+  _groundLayers:
+    serializedVersion: 2
+    m_Bits: 265
   onJump:
     m_PersistentCalls:
       m_Calls:
@@ -612,51 +615,38 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _groundLayers:
-    serializedVersion: 2
-    m_Bits: 265
   _groundMaxSpeed: 9
   _groundMoveSmoother: 0.02
   _timeBetweenSteps: 0.4
   _inAirMaxSpeed: 10
-  _targetGravScale: 20
-  _minFallSpeed: -7
   _inAirMoveSmoother: 0.01
-  maxTimeInAir: 0.8
   _jumpForce: 35
+  _maxJumpDuration: 0.8
   _jumpCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.2
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
+      value: 1
+      inSlope: -1.2999878
+      outSlope: -1.2999878
+      tangentMode: 34
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.014244854
-      value: 0.99998856
-      inSlope: -0.021742279
-      outSlope: -0.021742279
-      tangentMode: 0
+      time: 1
+      value: -0.2999878
+      inSlope: -1.2999878
+      outSlope: -1.2999878
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.079572886
-    - serializedVersion: 3
-      time: 0.8
-      value: -1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _minFallSpeed: -2
 --- !u!114 &8087492282305477805
 MonoBehaviour:
   m_ObjectHideFlags: 0
