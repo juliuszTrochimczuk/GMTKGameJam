@@ -76,7 +76,6 @@ namespace _01_9thWave.Scripts.Player
             {
                 if (hit != null)
                 {
-                    Debug.Log("Grabbed");
                     _heldObject = hit.GetComponent<Rigidbody2D>();
                     _heldObject.gameObject.layer = LayerMask.NameToLayer("GrabbedObject");
                     Cursor.SetCursor(_grabCursorTexture, Vector2.zero, CursorMode.Auto);
@@ -90,7 +89,6 @@ namespace _01_9thWave.Scripts.Player
                     _heldObject.gameObject.layer = LayerMask.NameToLayer("MovableObject");
                     _heldObject.gravityScale = _normalGravityScale;
                 }
-                Debug.Log("Released");
                 _heldObject = null;
             }
         }
