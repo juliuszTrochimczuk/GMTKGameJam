@@ -49,7 +49,7 @@ MonoBehaviour:
   _variantBig: {fileID: 5245091238148566805}
   _variantSmall: {fileID: 1874066033993640126}
   _durationInBig: 3
-  _activationDistance: 1.5
+  _activationDistance: 3.5
 --- !u!1 &7604207431938376513
 GameObject:
   m_ObjectHideFlags: 0
