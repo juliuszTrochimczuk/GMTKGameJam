@@ -9,6 +9,7 @@ namespace _01_9thWave.Scripts.UI
     public class PauseMenuUI : MonoBehaviour
     {
         [SerializeField] private GameObject pauseMenu;
+        [SerializeField] private GameObject settingsMenu;
         [SerializeField] private UnityEvent pauseEvent;
         [SerializeField] private UnityEvent unpauseEvent;
         
@@ -21,19 +22,43 @@ namespace _01_9thWave.Scripts.UI
         {
             if (ctx.performed)
             {
-                if (pauseMenu.activeSelf)
+                if (pauseMenu.activeSelf || settingsMenu.activeSelf)
                 {
                     unpauseEvent.Invoke();
-                    pauseMenu.SetActive(false);
-                    UIManager.Instance.ShowAllUIElements();
+                    HidePauseMenu();
                 }
                 else
                 {
                     pauseEvent.Invoke();
-                    pauseMenu.SetActive(true);
-                    UIManager.Instance.ShowSingleUIElement(gameObject);
+                    ShowPauseMenu();
                 }
             }
+        }
+        
+        public void FlipMenu()
+        {
+            if (pauseMenu.activeSelf || settingsMenu.activeSelf)
+            {
+                unpauseEvent.Invoke();
+                HidePauseMenu();
+            }
+            else
+            {
+                pauseEvent.Invoke();
+                ShowPauseMenu();
+            }
+        }
+        
+        public void ShowPauseMenu()
+        {
+            pauseMenu.SetActive(true);
+            UIManager.Instance.ShowSingleUIElement(gameObject);
+        }
+        
+        public void HidePauseMenu()
+        {
+            pauseMenu.SetActive(false);
+            UIManager.Instance.ShowAllUIElements();
         }
 
         public void LoadScene(string sceneName)
