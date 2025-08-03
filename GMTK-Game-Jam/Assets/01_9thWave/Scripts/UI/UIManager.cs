@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace _01_9thWave.Scripts.UI
 {
-    public class UIManager : SingletonDoNotDestroy<UIManager>
+    public class UIManager : Singleton<UIManager>
     {
         private readonly List<GameObject> _uiElements = new();
     

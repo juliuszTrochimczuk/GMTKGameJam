@@ -12,7 +12,7 @@ namespace _01_9thWave.Scripts.UI
         private int _currentWaveCount = 0;
         private int _maxWaveCount = 0;
         
-        private void Awake()
+        private void Start()
         {
             UIManager.Instance.AddToUIManagerList(gameObject);
         }
