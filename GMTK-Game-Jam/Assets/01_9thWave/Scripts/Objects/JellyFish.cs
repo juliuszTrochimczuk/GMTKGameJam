@@ -60,6 +60,8 @@ namespace Objects
 
         private bool IsPlayerColliding()
         {
+            if(gameObject.layer == 9)
+                return false;
             Vector2 playerCheckPosition = playerMovement.transform.position + (Vector3.down * playerRadius);
             return Mathf.Abs(playerCheckPosition.x - _checkJumpTransform.position.x) <= _checkJumpZone.x && 
                 Mathf.Abs(playerCheckPosition.y - _checkJumpTransform.position.y) <= _checkJumpZone.y;
