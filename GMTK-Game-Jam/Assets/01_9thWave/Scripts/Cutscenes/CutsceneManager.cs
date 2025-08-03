@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -16,45 +17,52 @@ namespace Cutscenes
             public Sprite shot;
         }
 
-        [SerializeField] private CutsceneShot[] shots;
+        [SerializeField] private CutsceneShot[] _shots;
         [SerializeField] private float _shotsTransitionTime;
 
-        private Image _image;
+        [SerializeField] private Image _template;
+
+        [Space(10)]
 
         [SerializeField] private UnityEvent onCutsceneEnd;
 
+        private List<Image> _plans = new();
+
         private void Awake()
         {
-            _image = GetComponentInChildren<Image>();
-            _image.sprite = shots[0].shot;
+            for (int i = _shots.Length - 1; i >= 0; i--)
+            {
+                Image newShot = Instantiate(_template, transform).GetComponent<Image>();
+                newShot.sprite = _shots[i].shot;
+                _plans.Add(newShot);
+            }
+
+            Destroy(_template.gameObject);
         }
         
         private void Start() => StartCoroutine(Cutscene());
 
         private IEnumerator Cutscene()
         {
-            yield return new WaitForSeconds(shots[0].duration);
-            for (int i = 1; i < shots.Length; i++)
+            for (int i = _plans.Count - 1; i >= 0; i--)
             {
-                yield return StartCoroutine(Transition(0));
-                _image.sprite = shots[i].shot;
-                yield return StartCoroutine(Transition(1));
-                yield return new WaitForSeconds(shots[i].duration);
+                _plans[i].gameObject.SetActive(true);
+                yield return new WaitForSeconds(_shots[i].duration);
+                yield return StartCoroutine(Transition(0, _plans[i]));
             }
-            yield return StartCoroutine(Transition(0));
             onCutsceneEnd.Invoke();
         }
 
-        private IEnumerator Transition(float targetAlpha)
+        private IEnumerator Transition(float targetAlpha, Image imageToTransition)
         {
-            Color oldColor = _image.color;
-            Color newColor = new(_image.color.r, _image.color.g, _image.color.b, targetAlpha);
+            Color oldColor = imageToTransition.color;
+            Color newColor = new(imageToTransition.color.r, imageToTransition.color.g, imageToTransition.color.b, targetAlpha);
             for (float time = 0.0f; time <= _shotsTransitionTime; time += Time.deltaTime)
             {
-                _image.color = Color.Lerp(oldColor, newColor, time / _shotsTransitionTime);
+                imageToTransition.color = Color.Lerp(oldColor, newColor, time / _shotsTransitionTime);
                 yield return new WaitForEndOfFrame();
             }
-            _image.color = newColor;
+            imageToTransition.color = newColor;
         }
     }
 }
