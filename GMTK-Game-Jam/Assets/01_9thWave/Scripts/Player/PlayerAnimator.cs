@@ -27,5 +27,7 @@ namespace _01_9thWave.Scripts.Player
         public void WalkingAnimation(float walking) => _animator.SetBool("IsWalking", Mathf.Abs(walking) > 0);
 
         public void ChangeJumpState(bool state) => _animator.SetBool("IsJumping", state);
+        
+        public void ChangeHidingState(bool state) => _animator.SetBool("IsHiding", state);
     }
 }
