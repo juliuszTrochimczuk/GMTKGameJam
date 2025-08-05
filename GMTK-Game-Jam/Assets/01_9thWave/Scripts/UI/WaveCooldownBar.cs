@@ -19,7 +19,7 @@ namespace _01_9thWave.Scripts.UI
             UIManager.Instance.AddToUIManagerList(gameObject);
         }
         
-        public void StartCooldownBar(float fillTime) => StartCoroutine(FillCooldownBar(fillTime));
+        public void StartCooldownBar(float fillTime) => UIManager.Instance.StartCoroutine(FillCooldownBar(fillTime));
         
         IEnumerator FillCooldownBar(float fillTime)
         {

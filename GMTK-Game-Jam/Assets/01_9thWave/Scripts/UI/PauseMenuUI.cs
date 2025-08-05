@@ -21,18 +21,7 @@ namespace _01_9thWave.Scripts.UI
         public void FlipMenu(InputAction.CallbackContext ctx)
         {
             if (ctx.performed)
-            {
-                if (pauseMenu.activeSelf || settingsMenu.activeSelf)
-                {
-                    unpauseEvent.Invoke();
-                    HidePauseMenu();
-                }
-                else
-                {
-                    pauseEvent.Invoke();
-                    ShowPauseMenu();
-                }
-            }
+                FlipMenu();
         }
         
         public void FlipMenu()
