@@ -20,6 +20,7 @@ namespace _01_9thWave.Scripts.Player
         
         private Rigidbody2D _heldObject;
         private PlayerHandsAnimator _playerHandsAnimator;
+        private Vector3 _grabOffset = new Vector2(0, 0);
 
 
         private void Start()
@@ -30,13 +31,26 @@ namespace _01_9thWave.Scripts.Player
         private void Update()
         {
             _holdPoint.position = CalculateGrabPointPosition();
+            ApplyHeldObjectPhysics();
+            Grab();
+            
+        }
+
+        private void ApplyHeldObjectPhysics()
+        {
             if (_heldObject != null)
             {
                 _heldObject.gravityScale = 0f;
-                _heldObject.velocity = (_holdPoint.position - _heldObject.transform.position) * _grabMagnitude;
+                _heldObject.velocity = (_holdPoint.position - _heldObject.transform.position + _grabOffset) * _grabMagnitude;
+                if (Input.GetKey(KeyCode.Q))
+                {
+                    _heldObject.GetComponent<Rigidbody2D>().AddTorque(10f);
+                }
+                if (Input.GetKey(KeyCode.E))
+                {
+                    _heldObject.GetComponent<Rigidbody2D>().AddTorque(-10f);
+                }
             }
-            Grab();
-            
         }
 
         private Vector2 CalculateGrabPointPosition()
@@ -76,7 +90,7 @@ namespace _01_9thWave.Scripts.Player
                 {
                     _playerHandsAnimator.SwichClawState();
                     _heldObject = hit.GetComponent<Rigidbody2D>();
-                    _heldObject.gameObject.layer = LayerMask.NameToLayer("GrabbedObject");
+                    _grabOffset = _heldObject.transform.position - _holdPoint.position;
                     Cursor.SetCursor(_grabCursorTexture, Vector2.zero, CursorMode.Auto);
                 }
             }
@@ -86,10 +100,9 @@ namespace _01_9thWave.Scripts.Player
                 if (_heldObject != null)
                 {
                     _playerHandsAnimator.SwichClawState();
-                    _heldObject.gameObject.layer = LayerMask.NameToLayer("MovableObject");
                     _heldObject.gravityScale = _normalGravityScale;
+                    _heldObject = null;
                 }
-                _heldObject = null;
             }
         }
     }

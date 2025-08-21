@@ -47,11 +47,9 @@ namespace _01_9thWave.Scripts.Player
                         return;
 
                     _heldObject = hitColliders[0].gameObject.GetComponent<Rigidbody2D>();
-                    _heldObject.gameObject.layer = LayerMask.NameToLayer("GrabbedObject");
                 }
                 else
                 {
-                    _heldObject.gameObject.layer = LayerMask.NameToLayer("MovableObject");
                     _heldObject.gravityScale = _normalGravityScale;
                     _heldObject = null;
                 }
