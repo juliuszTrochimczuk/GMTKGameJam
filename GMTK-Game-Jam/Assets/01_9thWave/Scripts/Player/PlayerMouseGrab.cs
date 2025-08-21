@@ -44,12 +44,18 @@ namespace _01_9thWave.Scripts.Player
                 _heldObject.velocity = (_holdPoint.position - _heldObject.transform.position + _grabOffset) * _grabMagnitude;
                 if (Input.GetKey(KeyCode.Q))
                 {
-                    _heldObject.GetComponent<Rigidbody2D>().AddTorque(10f);
+                    _heldObject.GetComponent<Rigidbody2D>().AddTorque(7f);
                 }
                 if (Input.GetKey(KeyCode.E))
                 {
-                    _heldObject.GetComponent<Rigidbody2D>().AddTorque(-10f);
+                    _heldObject.GetComponent<Rigidbody2D>().AddTorque(-7f);
                 }
+                float scroll = Input.GetAxis("Mouse ScrollWheel");
+                if (scroll != 0f)
+                {
+                    _heldObject.GetComponent<Rigidbody2D>().AddTorque(-scroll * 1200f);
+                }
+
             }
         }
 
