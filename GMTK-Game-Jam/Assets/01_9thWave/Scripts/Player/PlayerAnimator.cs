@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace _01_9thWave.Scripts.Player
@@ -7,7 +8,12 @@ namespace _01_9thWave.Scripts.Player
         private Animator _animator;
         
         void Awake() => _animator = GetComponent<Animator>();
-        
+
+        private void Start()
+        {
+            Flip(1.0f);
+        }
+
         public void Flip(float direction)
         {
             if (direction > 0)
