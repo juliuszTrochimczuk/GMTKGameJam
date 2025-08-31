@@ -20,7 +20,7 @@ namespace _01_9thWave.Scripts.UI
         public void UpdateWaveCounts(int currentWaveNumber, int maxWaveNumber)
         {
             _currentWaveCount = currentWaveNumber;
-            _maxWaveCount = maxWaveNumber;
+            _maxWaveCount = maxWaveNumber+1;
             UpdateText();
         }
 

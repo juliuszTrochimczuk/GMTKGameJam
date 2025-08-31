@@ -21,6 +21,11 @@ namespace _01_9thWave.Scripts.Player
         private Rigidbody2D _heldObject;
         private PlayerHandsAnimator _playerHandsAnimator;
         private Vector3 _grabOffset = new Vector2(0, 0);
+        
+        [SerializeField] private PlayerMovement _playerMovement;
+        
+        [SerializeField] private PhysicsMaterial2D _defaultMaterial;
+        [SerializeField] private PhysicsMaterial2D _frictionlessMaterial;
 
 
         private void Start()
@@ -40,6 +45,10 @@ namespace _01_9thWave.Scripts.Player
         {
             if (_heldObject != null)
             {
+                //_playerMovement.RemoveLayer("MovableObject");
+                _heldObject.mass = 3;
+                _heldObject.gameObject.layer = LayerMask.NameToLayer("MovableObject2");
+                _heldObject.sharedMaterial = _frictionlessMaterial;
                 _heldObject.gravityScale = 0f;
                 _heldObject.velocity = (_holdPoint.position - _heldObject.transform.position + _grabOffset) * _grabMagnitude;
                 if (Input.GetKey(KeyCode.Q))
@@ -89,6 +98,8 @@ namespace _01_9thWave.Scripts.Player
             else if (_heldObject == null)
             {
                 Cursor.SetCursor(_normalCursorTexture, Vector2.zero, CursorMode.Auto);
+                //
+                //_playerMovement.AddLayer("MovableObject");
             }
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
@@ -107,6 +118,10 @@ namespace _01_9thWave.Scripts.Player
                 {
                     _playerHandsAnimator.SwichClawState();
                     _heldObject.gravityScale = _normalGravityScale;
+                    _heldObject.sharedMaterial = _defaultMaterial;
+                    _heldObject.gameObject.layer = LayerMask.NameToLayer("MovableObject");
+                    _heldObject.mass = 20;
+                    
                     _heldObject = null;
                 }
             }

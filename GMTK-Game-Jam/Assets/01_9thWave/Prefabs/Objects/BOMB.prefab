@@ -161,9 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d175c4ac5715090459c5d75deaf36d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _velocityExplosionLevel: 5
-  _explosionRadius: 5
-  _explosionStrength: 100
+  _velocityExplosionLevel: 20
+  _explosionRadius: 15
+  _explosionStrength: 350
   _playerStunDuration: 0.8
   _explosionMask:
     serializedVersion: 2

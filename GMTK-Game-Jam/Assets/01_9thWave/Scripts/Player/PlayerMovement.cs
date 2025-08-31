@@ -68,6 +68,20 @@ namespace _01_9thWave.Scripts.Player
             HandleFootsteps();
         }
 
+        public void AddLayer(string layerName)
+        {
+            int layer = LayerMask.NameToLayer(layerName);
+            if (layer >= 0)
+                _groundLayers.value |= (1 << layer);
+        }
+        
+        public void RemoveLayer(string layerName)
+        {
+            int layer = LayerMask.NameToLayer(layerName);
+            if (layer >= 0)
+                _groundLayers.value &= ~(1 << layer);
+        }
+
         public void JumpAction(CallbackContext ctx)
         {
             if (ctx.performed && _onGround && !_isJumping)
@@ -190,7 +204,9 @@ namespace _01_9thWave.Scripts.Player
             float len = _collider.radius + _slopeRayLength;
 
             RaycastHit2D hitL = Physics2D.Raycast(left, Vector2.down, len, _groundLayers);
+            RaycastHit2D movHitL = Physics2D.Raycast(left, Vector2.down, len, LayerMask.GetMask("MovableObject2"));
             RaycastHit2D hitR = Physics2D.Raycast(right, Vector2.down, len, _groundLayers);
+            RaycastHit2D movHitR = Physics2D.Raycast(right, Vector2.down, len, LayerMask.GetMask("MovableObject2"));
 
             _onGround = false;
             if (hitL && hitR)
@@ -211,6 +227,23 @@ namespace _01_9thWave.Scripts.Player
             else
             {
                 _groundNormal = Vector2.up;
+            }
+            
+            if (movHitR || movHitL)
+            {
+                //var vector2 = _rb.velocity;
+                //vector2.x = vector2.x + 50f;
+                //_rb.velocity = vector2;
+
+                var vector2 = _rb.velocity.x == 0f ? 7.0f : _rb.velocity.x * 4f;
+                
+                _rb.AddForce(new Vector2(vector2, -5f), ForceMode2D.Impulse);
+                if (_rb.velocity.y >= 0f)
+                {
+                    var velocity = _rb.velocity;
+                    velocity.y = 0f;
+                    _rb.velocity = velocity;
+                }
             }
         }
 
